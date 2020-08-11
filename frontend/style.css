@@ -1,3 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Pangolin&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.container--header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+@media screen and (max-width: 420px) {
+  .container--header {
+    flex-direction: column-reverse;
+  }
+}
+
+.header {
+  color: #794355;
+}
+.header__heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.header__logo {
+  font-family: "Pangolin", cursive;
+  font-size: 35px;
+  margin: 10px 0;
+}
+.header__nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  list-style-type: none;
+}
+.header__nav a {
+  color: #794355;
+}
+@media screen and (max-width: 420px) {
+  .header__nav {
+    margin-bottom: 5px;
+  }
+}
+.header__link {
+  padding: 0 15px;
+}
+@media screen and (max-width: 850px) {
+  .header__link--text {
+    display: none;
+  }
+}
+.header a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.header a:hover {
+  color: #fac124;
+}
+.header__icon {
+  transition: all 0.4s ease;
+}
+.header__icon:hover {
+  transform: scale(1.3);
+}
+
+.toggle {
+  overflow: hidden;
+}
+.toggle__links {
+  display: none;
+}
+.toggle__link {
+  padding: 5px 30px 5px 5px;
+  text-decoration: none;
+  display: block;
+  background-color: #794355;
+  color: #F3E9F1;
+}
+.toggle__link--burger {
+  color: #794355;
+  background-color: white;
+}
+@media screen and (min-width: 850px) {
+  .toggle {
+    display: none;
+  }
+}
+
+.footer {
+  background-color: #794355;
+  color: #ffffff;
+  padding: 30px 0;
+}
+.footer__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+@media screen and (max-width: 750px) {
+  .footer__container {
+    flex-direction: column;
+  }
+}
+.footer__list {
+  width: 40%;
+  max-width: 450px;
+  text-align: center;
+}
+@media screen and (max-width: 750px) {
+  .footer__list {
+    width: 80%;
+  }
+}
+.footer__titles {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 300;
+}
+.footer__divider {
+  width: 95%;
+  border: 1px solid #fac124;
+  color: #fac124;
+}
+.footer__links {
+  padding-left: 0;
+  list-style: none;
+}
+.footer__links li {
+  padding: 5px 0;
+}
+.footer__links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+}
+.footer__links a:hover {
+  color: #fac124;
+}
+
+.hero {
+  padding: 50px 0;
+  background-color: #794355;
+  color: white;
+  text-align: center;
+}
+.hero__title {
+  text-transform: uppercase;
+  font-family: "Pangolin", cursive;
+  font-size: 35px;
+}
+.hero__heading {
+  font-weight: 300;
+  font-size: 20px;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,80 @@
+.header {
+    color: $darkPink;
+
+    &__heading {
+        @include flexbox;
+    }
+
+    &__logo {
+        font-family: $pangolin;
+        font-size: 35px;
+        margin: 10px 0;
+    }
+
+    &__nav {
+        @include flexbox;
+        padding: 0;
+        list-style-type: none;
+
+        a {
+            color: $darkPink;
+        }
+
+        @media screen and (max-width: $x-small + 100) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__link {
+        padding: 0 15px;
+
+        &--text {
+            @media screen and (max-width: $small + 200) {
+                display: none;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $accentColor;
+        }
+    }
+
+    &__icon {
+        transition: all 0.4s ease;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+}
+
+
+.toggle {
+    overflow: hidden;
+
+    &__links {
+        display: none;
+    }
+
+    &__link {
+        padding: 5px 30px 5px 5px;
+        text-decoration: none;
+        display: block;
+        background-color: $darkPink;
+        color: $orinocoPink;
+
+        &--burger {
+            color: $darkPink;
+            background-color: white;
+        }
+    }
+
+    @media screen and (min-width: $small + 200) {
+        display: none;
+    }
+}
