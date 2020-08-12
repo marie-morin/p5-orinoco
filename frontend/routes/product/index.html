@@ -49,7 +49,7 @@
     <!-- ========== HERO ========== -->
 
     <section class="hero">
-        <h1 class="hero__title">Norbert</h1>
+        <h1 class="hero__title"></h1>
     </section>
 
 
@@ -58,58 +58,50 @@
 
     <main class="product">
         <div class="container product__container">
-
-            <div class="product__image">
-                <img src="../../concert-bg.jpg" alt="">
-            </div>
-
-            <div class="product__parameters">
-                <h2 class="product__name">Norbert</h2>
-                <p class="product__description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae totam aliquam neque eligendi,
-                    facere tenetur praesentium voluptatum doloribus repudiandae corporis accusantium dicta obcaecati
-                    sapiente ipsa iste odit et iure quam.
-                </p>
-                <p class="product__price">$59</p>
-
-                <h3 class="product__sections">Personalize your friend :</h3>
-                <select class="product__select" name="personalisation" id="personalisation">
-                    <option value="">Please choose a color</option>
-                    <option value="red">Red</option>
-                    <option value="bleu">Blue</option>
-
-                </select>
-
-                <h3 class="product__sections">Choose you friend's size</h3>
-                <select class="product__select" name="size" id="size">
-                    <option value="">Please choose a size</option>
-                    <option value="ten">Ten Inch</option>
-                    <option value="fifhteen">Fiftheen Inch</option>
-                    <option value="twenty">Twenty Inch</option>
-                </select>
-
-                <h3 class="product__sections">Quantity</h3>
-                <select class="product__select" name="personalisation" id="personalisation">
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                    <option value="tree">3</option>
-                </select>
-
-                <h3 class="product__sections">Is Norbert a gift ?</h3>
-                <div class="product__switch">
-                    <input type="radio" id="yes" name="gift" value="yes" checked>
-                    <label for="yes">Yes</label>
-                    <input type="radio" id="no" name="gift" value="no">
-                    <label for="no">No</label>
+            <div id="destination" class="product__destination"></div>
+            <template class="product__template" id="template">
+                <div class="product__image">
+                    <img src="" alt="">
                 </div>
 
-                <div class="main__btn">
-                    <a href="#">Add to cart</a>
+                <div class="product__parameters">
+                    <h2 class="product__name"></h2>
+                    <p class="product__description"></p>
+                    <p class="product__price"></p>
+
+                    <h3 class="product__sections">Personalize your friend :</h3>
+                    <select class="product__select" name="personalisation" id="personalisation">
+                        <option value="">Please choose a color</option>
+                    </select>
+
+                    <h3 class="product__sections">Choose you friend's size</h3>
+                    <select class="product__select" name="size" id="size">
+                        <option value="">Please choose a size</option>
+                        <option value="ten">Ten inchs</option>
+                        <option value="fiftheen">Fiftheen inchs</option>
+                        <option value="twenty">Twenty inchs</option>
+                    </select>
+
+                    <h3 class="product__sections">Quantity</h3>
+                    <select class="product__select" name="personalisation" id="personalisation">
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="tree">3</option>
+                    </select>
+
+                    <h3 class="product__sections"></h3>
+                    <div class="product__switch">
+                        <input type="radio" id="yes" name="gift" value="yes" checked>
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="gift" value="no">
+                        <label for="no">No</label>
+                    </div>
+
+                    <div class="main__btn">
+                        <a href="#">Add to cart</a>
+                    </div>
                 </div>
-            </div>
-
-
-
+            </template>
         </div>
     </main>
 
