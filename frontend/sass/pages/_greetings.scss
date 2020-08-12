@@ -1,0 +1,17 @@
+.greetings {
+    width: 60%;
+    margin: 20px auto 0 auto;
+    @include flexbox();
+
+
+    &__summary {
+        width: 50%;
+        border: 2px solid $darkPink;
+        padding: 30px;
+    }
+
+    &__product {
+        @include flexbox(space-between);
+        border-bottom: 1px solid $darkPink;
+    }
+}

@@ -287,5 +287,122 @@ body {
 .product__switch label:hover {
   cursor: pointer;
 }
+.product__submit {
+  width: 100%;
+  text-align: center;
+}
+.product__submit input {
+  cursor: pointer;
+  margin-top: 35px;
+  text-transform: uppercase;
+  font-size: 18px;
+  background-color: #794355;
+  color: #ffffff;
+  padding: 15px 25px;
+  border: none;
+}
+
+.whishlist {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 0px 7px 2px #f0f0f0;
+  margin-top: 20px;
+  padding: 10px;
+}
+.whishlist__image img {
+  width: 250px;
+}
+.whishlist__infos {
+  margin-left: 10px;
+}
+.whishlist__name {
+  margin: 0;
+  font-family: "Pangolin", cursive;
+  color: #794355;
+}
+.whishlist__description {
+  margin: 5px 0;
+}
+.whishlist__color {
+  margin: 5px 0;
+}
+.whishlist__price {
+  color: green;
+  margin: 5px 0;
+}
+.whishlist__select {
+  background-color: #fac124;
+  border: none;
+  padding: 5px;
+  margin-top: 0;
+  color: #794355;
+}
+.whishlist a {
+  color: #794355;
+  font-size: 12px;
+}
+
+.price {
+  margin-top: 20px;
+  padding-right: 20px;
+  background-color: #794355;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.form {
+  width: 50%;
+  margin: 20px auto 0 auto;
+  background-color: #794355;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+.form h2 {
+  font-family: "Pangolin", cursive;
+  margin-top: 0;
+}
+.form label {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #fac124;
+}
+.form input {
+  width: 400px;
+  margin: 5px 0 20px 0;
+  height: 30px;
+}
+.form input[type=submit] {
+  background-color: #fac124;
+  border: none;
+  width: 30%;
+}
+
+.greetings {
+  width: 60%;
+  margin: 20px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.greetings__summary {
+  width: 50%;
+  border: 2px solid #794355;
+  padding: 30px;
+}
+.greetings__product {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #794355;
+}
 
 /*# sourceMappingURL=style.css.map */

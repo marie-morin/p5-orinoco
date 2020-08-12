@@ -9,6 +9,7 @@ const destination = document.getElementById("destination");
 const productTemplate = document.getElementById("template");
 
 
+
 fetch("http://localhost:3000/api/teddies/" + slice)
     .then((response) => response.json())
     .then((element) => {
@@ -50,5 +51,24 @@ fetch("http://localhost:3000/api/teddies/" + slice)
             destination.appendChild(newBear);
 
             document.querySelector(".hero__title").textContent = name;
+
+            const quantity = document.getElementById("quantity");
+            console.log(quantity);
+            const color = document.getElementById("color");
+            console.log(color);
+
+            const submitBtn = document.getElementById("submit");
+            console.log(submitBtn);
+            submitBtn.addEventListener("click", function (e) {
+                e.preventDefault;
+                e.stopImmediatePropagation();
+            })
         }
     });
+
+// submitBtn.addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     console.log(e);
+//     localStorage.setItem("quantity", "bob");
+//     localStorage.setItem("color", "mich");
+// })

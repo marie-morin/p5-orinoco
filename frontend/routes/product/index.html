@@ -36,9 +36,12 @@
                     <li class="header__link header__link--text"><a href="#">About</a></li>
                     <li class="header__link header__link--text"><a href="#">Reviews</a></li>
                     <!-- Following links always visible-->
-                    <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-shopping-cart header__icon"></i></a></li>
+                    <li class="header__link"><a href="routes/product/index.html"><i
+                                class="far fa-heart header__icon"></i></a></li>
+                    <li class="header__link"><a href="routes/confirmation/index.html"><i
+                                class="fas fa-user-circle header__icon"></i></a></li>
+                    <li class="header__link"><a href="routes/cart/index.html"><i
+                                class="fas fa-shopping-cart header__icon"></i></a></li>
                 </ul>
             </nav>
         </div>
@@ -64,18 +67,18 @@
                     <img src="" alt="">
                 </div>
 
-                <div class="product__parameters">
+                <form class="product__parameters" action="../cart/index.html">
                     <h2 class="product__name"></h2>
                     <p class="product__description"></p>
                     <p class="product__price"></p>
 
                     <h3 class="product__sections">Personalize your friend :</h3>
-                    <select class="product__select" name="personalisation" id="personalisation">
+                    <select class="product__select" name="color" id="color" required>
                         <option value="">Please choose a color</option>
                     </select>
 
                     <h3 class="product__sections">Choose you friend's size</h3>
-                    <select class="product__select" name="size" id="size">
+                    <select class="product__select" name="size" id="size" required>
                         <option value="">Please choose a size</option>
                         <option value="ten">Ten inchs</option>
                         <option value="fiftheen">Fiftheen inchs</option>
@@ -83,7 +86,7 @@
                     </select>
 
                     <h3 class="product__sections">Quantity</h3>
-                    <select class="product__select" name="personalisation" id="personalisation">
+                    <select class="product__select" name="quantity" id="quantity" required>
                         <option value="one">1</option>
                         <option value="two">2</option>
                         <option value="tree">3</option>
@@ -97,10 +100,10 @@
                         <label for="no">No</label>
                     </div>
 
-                    <div class="main__btn">
-                        <a href="#">Add to cart</a>
+                    <div class="product__submit">
+                        <input type="submit" value="Add to cart" id="submit">
                     </div>
-                </div>
+                </form>
             </template>
         </div>
     </main>

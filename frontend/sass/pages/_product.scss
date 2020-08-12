@@ -1,5 +1,4 @@
 .product {
-
     padding: 50px 0;
 
     &__destination {
@@ -72,6 +71,22 @@
             &:hover {
                 cursor: pointer;
             }
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        text-align: center;
+
+        input {
+            cursor: pointer;
+            margin-top: 35px;
+            text-transform: uppercase;
+            font-size: 18px;
+            background-color: $darkPink;
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
         }
     }
 }
