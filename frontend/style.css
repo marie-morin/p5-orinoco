@@ -88,8 +88,8 @@ body {
   padding: 5px 30px 5px 5px;
   text-decoration: none;
   display: block;
-  background-color: #794355;
-  color: #F3E9F1;
+  background-color: #fac124;
+  color: #ffffff;
 }
 .toggle__link--burger {
   color: #794355;
@@ -104,6 +104,7 @@ body {
 .footer {
   background-color: #794355;
   color: #ffffff;
+  margin-top: 30px;
   padding: 30px 0;
 }
 .footer__container {
@@ -167,6 +168,124 @@ body {
 .hero__heading {
   font-weight: 300;
   font-size: 20px;
+}
+
+.main__title {
+  text-align: center;
+  color: #794355;
+  text-transform: uppercase;
+  padding: 30px 0;
+}
+.main__catalog {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media screen and (max-width: 400px) {
+  .main__catalog {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+.main__product {
+  border: 2px solid #794355;
+  padding-bottom: 30px;
+}
+.main__image {
+  width: 100%;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.main__name {
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-family: "Pangolin", cursive;
+}
+.main__description {
+  padding: 0 10px;
+}
+.main__price {
+  padding: 0 10px;
+  color: green;
+}
+.main__btn {
+  width: 100%;
+  text-align: center;
+}
+.main__btn a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 15px 25px;
+  background-color: #794355;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.product {
+  padding: 50px 0;
+}
+.product__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.product__image img {
+  width: 100%;
+  max-width: 100%;
+}
+.product__parameters {
+  padding: 0 20px;
+}
+.product__name {
+  margin-top: 0;
+  font-family: "Pangolin", cursive;
+  color: #794355;
+}
+.product__price {
+  color: green;
+}
+.product__sections {
+  color: #794355;
+  margin-bottom: 0;
+}
+.product__select {
+  background-color: #fac124;
+  border: none;
+  padding: 5px;
+  margin-top: 5px;
+  color: #794355;
+}
+.product__switch {
+  display: flex;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.product__switch input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+.product__switch input:checked + label {
+  background-color: #fac124;
+  box-shadow: none;
+}
+.product__switch label {
+  background-color: #ffffff;
+  color: #794355;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.product__switch label:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

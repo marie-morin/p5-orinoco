@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../fontawesome/css/all.css">
+    <title>Orinoco | Products</title>
+</head>
+
+<body>
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="header container container--header">
+            <!-- Logo + Toggle Navigation -->
+            <div class="header__heading">
+                <!-- Toggle Navigation only appears under 850px -->
+                <nav class="toggle">
+                    <a href="#" class="toggle__link toggle__link--burger" id="burger">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="toggle__links" id="myLinks">
+                        <a href="#" class="toggle__link">Shop</a>
+                        <a href="#" class="toggle__link">About</a>
+                        <a href="#" class="toggle__link">Reviews</a>
+                    </div>
+                </nav>
+                <p class="header__logo">Orinico</p>
+            </div>
+
+            <nav class="no-toggle">
+                <ul class="header__nav">
+                    <!-- Following links disappear under 850xp -->
+                    <li class="header__link header__link--text"><a href="#">Shop</a></li>
+                    <li class="header__link header__link--text"><a href="#">About</a></li>
+                    <li class="header__link header__link--text"><a href="#">Reviews</a></li>
+                    <!-- Following links always visible-->
+                    <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
+                    <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a></li>
+                    <li class="header__link"><a href="#"><i class="fas fa-shopping-cart header__icon"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!-- ========== HERO ========== -->
+
+    <section class="hero">
+        <h1 class="hero__title">Norbert</h1>
+    </section>
+
+
+
+    <!-- ========== PRODUCT ========== -->
+
+    <main class="product">
+        <div class="container product__container">
+
+            <div class="product__image">
+                <img src="../../concert-bg.jpg" alt="">
+            </div>
+
+            <div class="product__parameters">
+                <h2 class="product__name">Norbert</h2>
+                <p class="product__description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae totam aliquam neque eligendi,
+                    facere tenetur praesentium voluptatum doloribus repudiandae corporis accusantium dicta obcaecati
+                    sapiente ipsa iste odit et iure quam.
+                </p>
+                <p class="product__price">$59</p>
+
+                <h3 class="product__sections">Personalize your friend :</h3>
+                <select class="product__select" name="personalisation" id="personalisation">
+                    <option value="">Please choose a color</option>
+                    <option value="red">Red</option>
+                    <option value="bleu">Blue</option>
+
+                </select>
+
+                <h3 class="product__sections">Choose you friend's size</h3>
+                <select class="product__select" name="size" id="size">
+                    <option value="">Please choose a size</option>
+                    <option value="ten">Ten Inch</option>
+                    <option value="fifhteen">Fiftheen Inch</option>
+                    <option value="twenty">Twenty Inch</option>
+                </select>
+
+                <h3 class="product__sections">Quantity</h3>
+                <select class="product__select" name="personalisation" id="personalisation">
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="tree">3</option>
+                </select>
+
+                <h3 class="product__sections">Is Norbert a gift ?</h3>
+                <div class="product__switch">
+                    <input type="radio" id="yes" name="gift" value="yes" checked>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="gift" value="no">
+                    <label for="no">No</label>
+                </div>
+
+                <div class="main__btn">
+                    <a href="#">Add to cart</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <article class="footer__list">
+                <h2 class="footer__titles">Orinoco</h2>
+                <hr class="footer__divider">
+                <ul class="footer__links">
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Reviews</a></li>
+                </ul>
+            </article>
+            <article class="footer__list">
+                <h2 class="footer__titles">Informations</h2>
+                <hr class="footer__divider">
+                <ul class="footer__links">
+                    <li><a href="#">Legals</a></li>
+                    <li><a href="#">Sales Conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </article>
+        </div>
+    </footer>
+
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="../../javascript/product.js"></script>
+</body>
+
+</html>
