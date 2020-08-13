@@ -87,3 +87,12 @@
         width: 30%;
     }
 }
+
+.empty {
+    border: 2px solid $darkPink;
+    margin: 20px auto;
+    padding: 30px;
+    text-align: center;
+    color: $darkPink;
+    text-transform: uppercase;
+}

@@ -1,74 +1,75 @@
-// Find the page's URL et extract ID
-const search = window.location.search;
-const slice = search.split('=')[1];
+// Check for full page load before doing anything
+window.addEventListener('DOMContentLoaded', (event) => {
 
+    //Searching for everythnong after "?" in URL
+    const search = window.location.search;
+    if (!search) return;
 
-// Div where the product is going
-const destination = document.getElementById("destination");
-// The template used
-const productTemplate = document.getElementById("template");
+    // Getting the ID in URL
+    const slice = search.split('=')[1];
 
+    const destination = document.getElementById("destination");
+    const productTemplate = document.getElementById("template");
+    if (!destination || !productTemplate || !slice) return;
 
+    fetch("http://localhost:3000/api/teddies/" + slice)
+        .then((response) => response.json())
+        .then((element) => {
+            const {
+                imageUrl,
+                name,
+                description,
+                price,
+                _id,
+                colors
+            } = element;
 
-fetch("http://localhost:3000/api/teddies/" + slice)
-    .then((response) => response.json())
-    .then((element) => {
-        console.log(element);
+            if (imageUrl && name && description && price && _id) {
+                const newBear = document.importNode(productTemplate.content, true);
+                const bearName = newBear.querySelector(".product__name");
+                const bearDescription = newBear.querySelector(".product__description");
+                const bearPrice = newBear.querySelector(".product__price");
+                const bearImage = newBear.querySelector(".product__image img");
+                const bearColor = newBear.querySelector(".product__select");
 
-        const {
-            imageUrl,
-            name,
-            description,
-            price,
-            _id,
-            colors
-        } = element;
+                bearName.textContent = name;
+                bearDescription.textContent = description;
+                bearPrice.textContent = `$${price}`;
+                bearImage.setAttribute("alt", description);
+                bearImage.src = imageUrl;
 
-        if (imageUrl && name && description && price && _id) {
-            const newBear = document.importNode(productTemplate.content, true);
+                // Creating an option for every product color
+                colors.forEach(color => {
+                    const newColor = document.createElement("option");
+                    newColor.textContent = color;
+                    newColor.setAttribute("value", color);
+                    bearColor.appendChild(newColor);
+                });
 
-            const bearName = newBear.querySelector(".product__name");
-            bearName.textContent = name;
+                destination.appendChild(newBear);
 
-            const bearDescription = newBear.querySelector(".product__description");
-            bearDescription.textContent = description;
-
-            const bearPrice = newBear.querySelector(".product__price");
-            bearPrice.textContent = `$${price}`;
-
-            const bearImage = newBear.querySelector(".product__image img");
-            bearImage.setAttribute("alt", description);
-            bearImage.src = imageUrl;
-
-            const bearColor = newBear.querySelector(".product__select");
-            colors.forEach(color => {
-                const newColor = document.createElement("option");
-                newColor.textContent = color;
-                newColor.setAttribute("value", color);
-                bearColor.appendChild(newColor);
-            });
-
-            destination.appendChild(newBear);
-
-            document.querySelector(".hero__title").textContent = name;
-
-            const quantity = document.getElementById("quantity");
-            console.log(quantity);
-            const color = document.getElementById("color");
-            console.log(color);
-
+                //Setting product's name in h1
+                document.querySelector(".hero__title").textContent = name;
+            }
+        })
+        // We need all the option element to be added to the DOM before adding a eventlinstener on it
+        .then(() => {
             const submitBtn = document.getElementById("submit");
-            console.log(submitBtn);
-            submitBtn.addEventListener("click", function (e) {
-                e.preventDefault;
-                e.stopImmediatePropagation();
-            })
-        }
-    });
+            if (!submitBtn) return;
 
-// submitBtn.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     console.log(e);
-//     localStorage.setItem("quantity", "bob");
-//     localStorage.setItem("color", "mich");
-// })
+            // Adding the element to localStorage when use clicks "ADD TO CART"
+            submitBtn.addEventListener("click", function (e) {
+                const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
+                const quantity = document.getElementById("quantity").value;
+                const color = document.getElementById("color");
+                const colorSelected = color.options[color.selectedIndex].text;
+                const orderContent = {
+                    "id": slice,
+                    "quantity": quantity,
+                    "color": colorSelected
+                };
+
+                localStorage.setItem(orderName, JSON.stringify(orderContent));
+            })
+        })
+});
