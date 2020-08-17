@@ -76,7 +76,7 @@
                 <a class="whishlist__remove" href="../cart/index.html">Remove</a>
             </div>
         </article> -->
-        <div class="deleteDestination"></div>
+        <div class="mainBtn"></div>
 
         <div class="price">
             <p class="price__total">Total Cost = $</p>
@@ -105,8 +105,8 @@
                 <label for="email">Email </label><br>
                 <input type="email" name="email" id="email" placeholder="john.smith@gmail.com" required>
             </div>
-            <div>
-                <input type="submit" value="BUY">
+            <div class="mainBtn">
+                <input type="submit" value="BUY" class="mainBtn__btn mainBtn__btn--yellow mainBtn__btn--form">
             </div>
         </form>
     </main>
@@ -115,30 +115,29 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <div class="container footer__container">
-            <article class="footer__list">
-                <h2 class="footer__titles">Orinoco</h2>
-                <hr class="footer__divider">
-                <ul class="footer__links">
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Reviews</a></li>
-                </ul>
-            </article>
-            <article class="footer__list">
-                <h2 class="footer__titles">Informations</h2>
-                <hr class="footer__divider">
-                <ul class="footer__links">
-                    <li><a href="#">Legals</a></li>
-                    <li><a href="#">Sales Conditions</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </article>
-        </div>
+        <article class="footer__section">
+            <h2 class="footer__title">Orinoco</h2>
+            <hr class="footer__divider">
+            <ul class="footer__list">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Reviews</a></li>
+            </ul>
+        </article>
+        <article class="footer__section">
+            <h2 class="footer__title">Informations</h2>
+            <hr class="footer__divider">
+            <ul class="footer__list">
+                <li><a href="#">Legals</a></li>
+                <li><a href="#">Sales Conditions</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </article>
     </footer>
 
 
     <!-- ========== SCRIPTS ========== -->
+    <script src="../../javascript/functions.js"></script>
     <script src="../../javascript/cart.js"></script>
 </body>
 

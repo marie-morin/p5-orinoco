@@ -1,0 +1,18 @@
+.hero {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: $darkPink;
+    color: white;
+
+    &__title {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: $pangolin;
+        font-size: 35px;
+    }
+
+    &__undertitle {
+        font-weight: 300;
+        font-size: 20px;
+    }
+}

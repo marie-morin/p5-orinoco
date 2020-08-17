@@ -1,4 +1,12 @@
 window.addEventListener('DOMContentLoaded', (event) => {
+    const mainContainer = document.querySelector(".greetings");
+    if (!mainContainer) return;
+
+    if (localStorage.length == 0) {
+        mainContainer.innerHTML = "";
+        window.location.replace("../../index.html");
+    }
+
     const nameElt = document.querySelector(".greetings__name");
     const emailElt = document.querySelector(".greetings__email");
     const priceElt = document.querySelector(".greetings__total");
@@ -8,7 +16,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (!nameElt || !emailElt || !priceElt || !orderElt || !destination) return;
 
     const orderRecap = JSON.parse(localStorage.getItem('orderRecap'));
-    console.log(orderRecap);
 
     nameElt.textContent = orderRecap.contact.firstName;
     emailElt.textContent = orderRecap.contact.email;

@@ -1,17 +1,20 @@
 // Check for full page load before doing anything
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    const search = window.location.search;
-    if (!search) return;
-    const slice = search.split('=')[1];
-
-    const destination = document.getElementById("destination");
+    const productDestination = document.getElementById("destination");
     const productTemplate = document.getElementById("template");
-    if (!destination || !productTemplate || !slice) return;
+    const search = window.location.search;
 
-    fetch("http://localhost:3000/api/teddies/" + slice)
-        .then((response) => response.json())
-        .then((element) => {
+    if (!search) return;
+    const sliceId = search.split('=')[1];
+
+    if (!productDestination || !productTemplate || !sliceId) return;
+
+    const data = getData("http://localhost:3000/api/teddies/" + sliceId);
+
+    if (!data) return;
+
+    data.then(product => {
             const {
                 imageUrl,
                 name,
@@ -19,34 +22,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 price,
                 _id,
                 colors
-            } = element;
+            } = product;
+
 
             if (imageUrl && name && description && price && _id) {
-                const newBear = document.importNode(productTemplate.content, true);
-                const bearName = newBear.querySelector(".product__name");
-                const bearDescription = newBear.querySelector(".product__description");
-                const bearPrice = newBear.querySelector(".product__price");
-                const bearImage = newBear.querySelector(".product__image img");
-                const bearColor = newBear.querySelector(".product__select");
+                document.querySelector(".hero__title").textContent = name;
 
-                bearName.textContent = name;
-                bearDescription.textContent = description;
-                bearPrice.textContent = `$${price}`;
-                bearImage.setAttribute("alt", description);
-                bearImage.src = imageUrl;
+                const newProduct = document.importNode(productTemplate.content, true);
+                const productName = newProduct.querySelector(".product__name");
+                const productDescription = newProduct.querySelector(".product__description");
+                const productPrice = newProduct.querySelector(".product__price");
+                const productImage = newProduct.querySelector(".product__image img");
+                const productColor = newProduct.querySelector(".product__select");
+
+                productName.textContent = name;
+                productDescription.textContent = description;
+                productPrice.textContent = `$${price}`;
+                productImage.setAttribute("alt", description);
+                productImage.src = imageUrl;
 
                 colors.forEach(color => {
                     const newColor = document.createElement("option");
                     newColor.textContent = color;
                     newColor.setAttribute("value", color);
-                    bearColor.appendChild(newColor);
+                    productColor.appendChild(newColor);
                 });
 
-                destination.appendChild(newBear);
-
-                document.querySelector(".hero__title").textContent = name;
+                productDestination.appendChild(newProduct);
             }
         })
+
         .then(() => {
             const submitBtn = document.getElementById("submit");
             if (!submitBtn) return;
@@ -55,9 +60,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
                 const quantity = document.getElementById("quantity").value;
                 const color = document.getElementById("color");
+                if (!orderName || !quantity || !color) return;
+
                 const colorSelected = color.options[color.selectedIndex].text;
                 const orderContent = {
-                    "id": slice,
+                    "id": sliceId,
                     "quantity": quantity,
                     "color": colorSelected
                 };

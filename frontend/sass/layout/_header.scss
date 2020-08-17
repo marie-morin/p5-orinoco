@@ -6,9 +6,9 @@
     }
 
     &__logo {
+        margin: 10px 0;
         font-family: $pangolin;
         font-size: 35px;
-        margin: 10px 0;
         color: $darkPink;
     }
 
@@ -43,10 +43,6 @@
     a {
         text-decoration: none;
         text-transform: uppercase;
-
-        // &:hover {
-        //     color: $accentColor;
-        // }
     }
 
     &__icon {
@@ -67,15 +63,15 @@
     }
 
     &__link {
-        padding: 5px 30px 5px 5px;
-        text-decoration: none;
         display: block;
+        padding: 5px 30px 5px 5px;
         background-color: $accentColor;
         color: #ffffff;
+        text-decoration: none;
 
         &--burger {
-            color: $darkPink;
             background-color: white;
+            color: $darkPink;
         }
     }
 

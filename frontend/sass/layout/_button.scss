@@ -1,0 +1,33 @@
+.mainBtn {
+    width: 100%;
+    text-align: center;
+
+    &--left {
+        text-align: left;
+        margin-top: 35px;
+    }
+
+    &__btn {
+        margin-top: 20px;
+        padding: 10px 15px;
+        border: none;
+        font-size: 18px;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: $darkPink;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-block;
+
+        &--yellow {
+            background-color: $accentColor;
+            color: $darkPink;
+        }
+
+        &--form {
+            width: 30% !important;
+            min-width: 90px;
+            height: auto !important;
+        }
+    }
+}

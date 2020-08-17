@@ -36,9 +36,9 @@ body {
   align-items: center;
 }
 .header__logo {
+  margin: 10px 0;
   font-family: "Pangolin", cursive;
   font-size: 35px;
-  margin: 10px 0;
   color: #794355;
 }
 .header__nav {
@@ -86,15 +86,15 @@ body {
   display: none;
 }
 .toggle__link {
-  padding: 5px 30px 5px 5px;
-  text-decoration: none;
   display: block;
+  padding: 5px 30px 5px 5px;
   background-color: #fac124;
   color: #ffffff;
+  text-decoration: none;
 }
 .toggle__link--burger {
-  color: #794355;
   background-color: white;
+  color: #794355;
 }
 @media screen and (min-width: 850px) {
   .toggle {
@@ -103,72 +103,101 @@ body {
 }
 
 .footer {
-  background-color: #794355;
-  color: #ffffff;
-  margin-top: 30px;
-  padding: 30px 0;
-}
-.footer__container {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  margin-top: 30px;
+  padding: 30px 0;
+  background-color: #794355;
+  color: #ffffff;
 }
 @media screen and (max-width: 750px) {
-  .footer__container {
+  .footer {
     flex-direction: column;
   }
 }
-.footer__list {
+.footer__section {
   width: 40%;
   max-width: 450px;
   text-align: center;
 }
 @media screen and (max-width: 750px) {
-  .footer__list {
+  .footer__section {
     width: 80%;
   }
 }
-.footer__titles {
-  text-transform: uppercase;
+.footer__title {
   font-size: 18px;
   font-weight: 300;
+  text-transform: uppercase;
 }
 .footer__divider {
   width: 95%;
   border: 1px solid #fac124;
   color: #fac124;
 }
-.footer__links {
+.footer__list {
   padding-left: 0;
   list-style: none;
 }
-.footer__links li {
+.footer__list li {
   padding: 5px 0;
 }
-.footer__links a {
+.footer__list a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 300;
 }
-.footer__links a:hover {
+.footer__list a:hover {
   color: #fac124;
 }
 
 .hero {
-  padding: 50px 20px;
+  padding: 40px 20px;
+  text-align: center;
   background-color: #794355;
   color: white;
-  text-align: center;
 }
 .hero__title {
+  margin: 0;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   font-size: 35px;
 }
-.hero__heading {
+.hero__undertitle {
   font-weight: 300;
   font-size: 20px;
+}
+
+.mainBtn {
+  width: 100%;
+  text-align: center;
+}
+.mainBtn--left {
+  text-align: left;
+  margin-top: 35px;
+}
+.mainBtn__btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #794355;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+}
+.mainBtn__btn--yellow {
+  background-color: #fac124;
+  color: #794355;
+}
+.mainBtn__btn--form {
+  width: 30% !important;
+  min-width: 90px;
+  height: auto !important;
 }
 
 .main__title {
@@ -208,19 +237,6 @@ body {
 .main__price {
   padding: 0 10px;
   color: green;
-}
-.main__btn {
-  width: 100%;
-  text-align: center;
-}
-.main__btn a {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 15px 25px;
-  background-color: #794355;
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
 }
 
 .product {
@@ -292,19 +308,6 @@ body {
 }
 .product__switch label:hover {
   cursor: pointer;
-}
-.product__submit {
-  width: 100%;
-}
-.product__submit input {
-  cursor: pointer;
-  margin-top: 35px;
-  text-transform: uppercase;
-  font-size: 18px;
-  background-color: #794355;
-  color: #ffffff;
-  padding: 15px 25px;
-  border: none;
 }
 
 .whishlist {
@@ -414,13 +417,6 @@ body {
     width: 100%;
   }
 }
-.form input[type=submit] {
-  background-color: #fac124;
-  border: none;
-  width: 30%;
-  color: #794355;
-  font-weight: 800;
-}
 
 .empty {
   border: 2px solid #794355;
@@ -429,21 +425,6 @@ body {
   text-align: center;
   color: #794355;
   text-transform: uppercase;
-}
-
-.deleteDestination {
-  text-align: center;
-}
-
-.deleteBtn {
-  background-color: #fac124;
-  border: none;
-  color: #ffffff;
-  padding: 10px 15px;
-  text-transform: uppercase;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 35px;
 }
 
 .greetings {
