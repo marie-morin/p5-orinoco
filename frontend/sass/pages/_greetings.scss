@@ -3,9 +3,16 @@
     margin: 20px auto 0 auto;
     @include flexbox();
 
+    @media screen and (max-width: $medium) {
+        flex-direction: column;
+    }
+
+    &__infos {
+        padding-right: 20px;
+    }
 
     &__summary {
-        width: 50%;
+        // width: 70%;
         border: 2px solid $darkPink;
         padding: 30px;
     }

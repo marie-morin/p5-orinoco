@@ -39,6 +39,7 @@ body {
   font-family: "Pangolin", cursive;
   font-size: 35px;
   margin: 10px 0;
+  color: #794355;
 }
 .header__nav {
   display: flex;
@@ -50,6 +51,9 @@ body {
 }
 .header__nav a {
   color: #794355;
+}
+.header__nav a:hover {
+  color: #fac124;
 }
 @media screen and (max-width: 420px) {
   .header__nav {
@@ -67,9 +71,6 @@ body {
 .header a {
   text-decoration: none;
   text-transform: uppercase;
-}
-.header a:hover {
-  color: #fac124;
 }
 .header__icon {
   transition: all 0.4s ease;
@@ -155,7 +156,7 @@ body {
 }
 
 .hero {
-  padding: 50px 0;
+  padding: 50px 20px;
   background-color: #794355;
   color: white;
   text-align: center;
@@ -231,6 +232,11 @@ body {
   flex-direction: row;
   align-items: flex-start;
 }
+@media screen and (max-width: 1024px) {
+  .product__destination {
+    flex-direction: column;
+  }
+}
 .product__image img {
   width: 100%;
   max-width: 100%;
@@ -289,7 +295,6 @@ body {
 }
 .product__submit {
   width: 100%;
-  text-align: center;
 }
 .product__submit input {
   cursor: pointer;
@@ -311,11 +316,31 @@ body {
   margin-top: 20px;
   padding: 10px;
 }
+@media screen and (max-width: 750px) {
+  .whishlist {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 550px) {
+  .whishlist {
+    width: 100%;
+  }
+}
 .whishlist__image img {
-  width: 250px;
+  width: 300px;
+}
+@media screen and (max-width: 750px) {
+  .whishlist__image img {
+    width: 100%;
+  }
 }
 .whishlist__infos {
   margin-left: 10px;
+}
+@media screen and (max-width: 750px) {
+  .whishlist__infos {
+    text-align: center;
+  }
 }
 .whishlist__name {
   margin: 0;
@@ -357,12 +382,18 @@ body {
 }
 
 .form {
-  width: 50%;
+  width: 60%;
   margin: 20px auto 0 auto;
   background-color: #794355;
   padding: 20px;
   color: #ffffff;
   text-align: center;
+  box-shadow: 0 0 15px #8a8a8a;
+}
+@media screen and (max-width: 1124px) {
+  .form {
+    width: 100%;
+  }
 }
 .form h2 {
   font-family: "Pangolin", cursive;
@@ -374,14 +405,21 @@ body {
   color: #fac124;
 }
 .form input {
-  width: 400px;
+  width: 70%;
   margin: 5px 0 20px 0;
   height: 30px;
+}
+@media screen and (max-width: 650px) {
+  .form input {
+    width: 100%;
+  }
 }
 .form input[type=submit] {
   background-color: #fac124;
   border: none;
   width: 30%;
+  color: #794355;
+  font-weight: 800;
 }
 
 .empty {
@@ -393,6 +431,21 @@ body {
   text-transform: uppercase;
 }
 
+.deleteDestination {
+  text-align: center;
+}
+
+.deleteBtn {
+  background-color: #fac124;
+  border: none;
+  color: #ffffff;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 35px;
+}
+
 .greetings {
   width: 60%;
   margin: 20px auto 0 auto;
@@ -401,8 +454,15 @@ body {
   flex-direction: row;
   align-items: center;
 }
+@media screen and (max-width: 1024px) {
+  .greetings {
+    flex-direction: column;
+  }
+}
+.greetings__infos {
+  padding-right: 20px;
+}
 .greetings__summary {
-  width: 50%;
   border: 2px solid #794355;
   padding: 30px;
 }

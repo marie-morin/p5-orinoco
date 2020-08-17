@@ -35,14 +35,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     <h3 class="main__name">${name}</h3>
                     <p class="main__description">${description}</p>
                     <p class="main__price">$${price}</p>
-                    <div class="main__btn"><a href="routes/product/index.html?id=${_id}">Get to know him</a></div>`;
+                    <div class="main__btn">
+                    <a href="routes/product/index.html?id=${_id}">Get to know him</a>
+                    </div>`;
                     reception.appendChild(productCard);
                 }
             });
         })
 });
 
-// Burger menu display function
 function displayToogleNavigation() {
     const links = document.querySelector("#myLinks");
     if (links.style.display === "block") {

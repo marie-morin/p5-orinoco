@@ -1,11 +1,8 @@
 // Check for full page load before doing anything
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    //Searching for everythnong after "?" in URL
     const search = window.location.search;
     if (!search) return;
-
-    // Getting the ID in URL
     const slice = search.split('=')[1];
 
     const destination = document.getElementById("destination");
@@ -38,7 +35,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 bearImage.setAttribute("alt", description);
                 bearImage.src = imageUrl;
 
-                // Creating an option for every product color
                 colors.forEach(color => {
                     const newColor = document.createElement("option");
                     newColor.textContent = color;
@@ -48,16 +44,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                 destination.appendChild(newBear);
 
-                //Setting product's name in h1
                 document.querySelector(".hero__title").textContent = name;
             }
         })
-        // We need all the option element to be added to the DOM before adding a eventlinstener on it
         .then(() => {
             const submitBtn = document.getElementById("submit");
             if (!submitBtn) return;
 
-            // Adding the element to localStorage when use clicks "ADD TO CART"
             submitBtn.addEventListener("click", function (e) {
                 const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
                 const quantity = document.getElementById("quantity").value;
@@ -68,7 +61,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     "quantity": quantity,
                     "color": colorSelected
                 };
-
                 localStorage.setItem(orderName, JSON.stringify(orderContent));
             })
         })

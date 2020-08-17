@@ -4,14 +4,32 @@
     margin-top: 20px;
     padding: 10px;
 
+    @media screen and (max-width: $small + 100) {
+        flex-direction: column;
+        // width: 350px;
+        // margin: 20px auto 0 auto;
+    }
+
+    @media screen and (max-width: $small - 100) {
+        width: 100%;
+    }
+
     &__image {
         img {
-            width: 250px;
+            width: 300px;
+
+            @media screen and (max-width: $small + 100) {
+                width: 100%;
+            }
         }
     }
 
     &__infos {
         margin-left: 10px;
+
+        @media screen and (max-width: $small + 100) {
+            text-align: center;
+        }
     }
 
     &__name {
@@ -57,12 +75,17 @@
 }
 
 .form {
-    width: 50%;
+    width: 60%;
     margin: 20px auto 0 auto;
     background-color: $darkPink;
     padding: 20px;
     color: #ffffff;
     text-align: center;
+    box-shadow: 0 0 15px #8a8a8a;
+
+    @media screen and (max-width: $medium + 100) {
+        width: 100%;
+    }
 
     h2 {
         font-family: $pangolin;
@@ -76,15 +99,22 @@
     }
 
     input {
-        width: 400px;
+        // width: 400px;
+        width: 70%;
         margin: 5px 0 20px 0;
         height: 30px;
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+        }
     }
 
     input[type="submit"] {
         background-color: $accentColor;
         border: none;
         width: 30%;
+        color: $darkPink;
+        font-weight: 800;
     }
 }
 
@@ -95,4 +125,19 @@
     text-align: center;
     color: $darkPink;
     text-transform: uppercase;
+}
+
+.deleteDestination {
+    text-align: center;
+}
+
+.deleteBtn {
+    background-color: $accentColor;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 35px;
 }

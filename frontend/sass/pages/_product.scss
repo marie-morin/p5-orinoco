@@ -3,6 +3,10 @@
 
     &__destination {
         @include flexbox(space-between, row, flex-start);
+
+        @media screen and (max-width : $medium) {
+            flex-direction: column;
+        }
     }
 
     &__image {
@@ -76,7 +80,7 @@
 
     &__submit {
         width: 100%;
-        text-align: center;
+        // text-align: center;
 
         input {
             cursor: pointer;
