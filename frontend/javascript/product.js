@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const productName = newProduct.querySelector(".product__name");
                 const productDescription = newProduct.querySelector(".product__description");
                 const productPrice = newProduct.querySelector(".product__price");
-                const productImage = newProduct.querySelector(".product__image img");
+                const productImage = newProduct.querySelector(".product__image");
                 const productColor = newProduct.querySelector(".product__select");
 
                 productName.textContent = name;

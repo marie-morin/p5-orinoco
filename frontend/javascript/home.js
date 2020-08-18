@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const burgerMenu = document.getElementById("burger");
-    const productDestination = document.querySelector(".main__catalog");
+    const productDestination = document.querySelector(".catalog");
 
     if (burgerMenu) burgerMenu.addEventListener("click", displayToogleNavigation);
 
@@ -21,18 +21,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 _id
             } = product;
 
-            const productCard = document.createElement("div");
-            productCard.classList.add("main__product");
+            const productCard = document.createElement("article");
+            productCard.classList.add("product");
+            productCard.classList.add("product--column");
 
             if (imageUrl && name && description && price && _id) {
                 productCard.innerHTML =
-                    `<img src="${imageUrl}" alt="${description}" class="main__image">
-                <h3 class="main__name">${name}</h3>
-                <p class="main__description">${description}</p>
-                <p class="main__price">$${price}</p>
-                <div class="mainBtn">
-                <a href="routes/product/index.html?id=${_id}" class="mainBtn__btn">Get to know him</a>
+                    `<div class="product__showoff">
+                    <img src="${imageUrl}" alt="${description}" class="product__image product__image--fixedHeight">
+                </div>
+                <div class="product__infos">
+                    <h3 class="product__name">${name}</h3>
+                    <p class="product__description">${description}</p>
+                    <p class="product__price">$${price}</p>
+                    <div class="mainBtn">
+                        <a href="routes/product/index.html?id=${_id}" class="mainBtn__btn">Get to know him</a>
+                    </div>
                 </div>`;
+
                 productDestination.appendChild(productCard);
             }
         });

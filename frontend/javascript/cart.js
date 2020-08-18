@@ -42,23 +42,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                     if (localID == _id) {
                         const article = document.createElement("article");
-                        article.classList.add("whishlist");
+                        article.classList.add("product");
 
                         article.innerHTML =
-                            `<div class="whishlist__image">
-                            <img src="${imageUrl}" alt="${description}">
+                            `<div class="product__showoff">
+                            <img class="product__image product__image--fixedWidth" src="${imageUrl}" alt="${description}">
                         </div>
-                        <div class="whishlist__infos">
-                            <h2 class="whishlist__name">${name}</h2>
-                            <p class="whishlist__description">${description}</p>
-                            <p class="whishlist__color">Couleur : ${usableKey.color}</p>
-                            <p class="whishlist__price">${price}</p>
-                            <select class="whishlist__select ${_id}" name="personalisation" id="personalisation">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                        <div class="product__infos">
+                            <h2 class="product__name">${name}</h2>
+                            <p class="product__description">${description}</p>
+                            <p class="product__color">Couleur : ${usableKey.color}</p>
+                            <p class="product__price">$${price}</p>
+                            <select class="product__select ${_id}" name="personalisation" id="personalisation">
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                                <option value="tree">3</option>
                             </select><br>
-                        <a id="${_id}" class="whishlist__remove ${key}" href="../cart/index.html">Remove</a>
+                            <a id="${_id}" class="product__remove ${key}" href="../cart/index.html">Remove</a>
                         </div>`;
 
                         productsDestination.appendChild(article);
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             })
         })
         .then(function () {
-            const form = document.querySelector("form");
+            const form = document.querySelector("cartForm");
             if (!form) return;
             const products = [];
 

@@ -1,0 +1,128 @@
+.product {
+    @include flexbox();
+    margin: 20px 0;
+    box-shadow: 0px 0px 7px 2px rgba(240, 240, 240, 1);
+
+    &--noShadow {
+        box-shadow: none;
+
+        @media screen and (max-width: $large) {
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: $small + 200) {
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: $small - 100) {
+        width: 100%;
+    }
+
+    &--column {
+        flex-direction: column;
+    }
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+
+        @media screen and (max-width: $small + 100) {
+            width: 100%;
+        }
+
+        &--fixedHeight {
+            height: 250px;
+        }
+
+        &--fixedWidth {
+            width: 350px;
+            margin-left: 15px;
+
+            @media screen and (max-width: $small + 200) {
+                width: 100%;
+                margin-left: 0px;
+            }
+        }
+    }
+
+    &__infos {
+        padding: 15px;
+
+        @media screen and (max-width: $small + 100) {
+            text-align: center;
+        }
+    }
+
+    &__name {
+        font-family: $pangolin;
+        text-transform: uppercase;
+        color: $darkPink;
+    }
+
+    &__description {
+        margin: 0;
+    }
+
+    &__color {
+        margin: 0;
+    }
+
+    &__price {
+        padding: 0;
+        color: green;
+    }
+
+    &__section {
+        margin-bottom: 0;
+        color: $darkPink;
+    }
+
+    &__select {
+        margin-top: 5px;
+        padding: 5px;
+        border: none;
+        background-color: $accentColor;
+        color: $darkPink;
+    }
+
+    &__switch {
+        display: flex;
+        margin-top: 10px;
+        overflow: hidden;
+
+        input {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            overflow: hidden;
+
+            &:checked+label {
+                background-color: $accentColor;
+                box-shadow: none;
+            }
+        }
+
+        label {
+            padding: 8px 16px;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            background-color: #ffffff;
+            color: $darkPink;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__remove {
+        color: $darkPink;
+        font-size: 12px;
+    }
+}

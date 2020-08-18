@@ -57,25 +57,27 @@
 
     <!-- ========== PRODUCT ========== -->
 
-    <main class="product">
+    <main>
         <div class="container product__container">
-            <div id="destination" class="product__destination"></div>
-            <template class="product__template" id="template">
-                <div class="product__image">
-                    <img src="" alt="">
+            <div id="destination" class="product product--noShadow"></div>
+
+
+            <template id="template">
+                <div class="product__showoff">
+                    <img class="product__image product__image--minWidth" src="" alt="">
                 </div>
 
-                <form class="product__parameters" action="../cart/index.html">
+                <form class="product__infos" action="../cart/index.html">
                     <h2 class="product__name"></h2>
                     <p class="product__description"></p>
                     <p class="product__price"></p>
 
-                    <h3 class="product__sections">Personalize your friend :</h3>
+                    <h3 class="product__section">Personalize your friend :</h3>
                     <select class="product__select" name="color" id="color" required>
                         <option value="">Please choose a color</option>
                     </select>
 
-                    <h3 class="product__sections">Choose you friend's size</h3>
+                    <h3 class="product__section">Choose you friend's size</h3>
                     <select class="product__select" name="size" id="size" required>
                         <option value="">Please choose a size</option>
                         <option value="ten">Ten inchs</option>
@@ -83,14 +85,14 @@
                         <option value="twenty">Twenty inchs</option>
                     </select>
 
-                    <h3 class="product__sections">Quantity</h3>
+                    <h3 class="product__section">Quantity</h3>
                     <select class="product__select" name="quantity" id="quantity" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
 
-                    <h3 class="product__sections"></h3>
+                    <h3 class="product__section"></h3>
                     <div class="product__switch">
                         <input type="radio" id="yes" name="gift" value="yes" checked>
                         <label for="yes">Yes</label>
@@ -103,6 +105,9 @@
                     </div>
                 </form>
             </template>
+
+
+
         </div>
     </main>
 

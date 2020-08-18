@@ -3,12 +3,14 @@
 
 @import "base/base";
 
-@import "layout/header";
-@import "layout/footer";
-@import "layout/hero";
+@import "layout/await";
 @import "layout/button";
+@import "layout/header";
+@import "layout/hero";
+@import "layout/footer";
+@import "layout/form";
+@import "layout/product";
 
 @import "pages/home";
-@import "pages/product";
 @import "pages/cart";
 @import "pages/greetings";

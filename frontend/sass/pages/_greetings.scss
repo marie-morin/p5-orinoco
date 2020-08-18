@@ -1,7 +1,7 @@
 .greetings {
+    @include flexbox();
     width: 60%;
     margin: 20px auto 0 auto;
-    @include flexbox();
 
     @media screen and (max-width: $medium) {
         flex-direction: column;
@@ -12,9 +12,8 @@
     }
 
     &__summary {
-        // width: 70%;
-        border: 2px solid $darkPink;
         padding: 30px;
+        border: 2px solid $darkPink;
     }
 
     &__product {

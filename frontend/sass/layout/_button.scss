@@ -3,21 +3,21 @@
     text-align: center;
 
     &--left {
-        text-align: left;
         margin-top: 35px;
+        text-align: left;
     }
 
     &__btn {
-        margin-top: 20px;
+        display: inline-block;
+        margin-top: 0;
         padding: 10px 15px;
-        border: none;
         font-size: 18px;
         text-transform: uppercase;
         text-decoration: none;
         background-color: $darkPink;
         color: #ffffff;
+        border: none;
         cursor: pointer;
-        display: inline-block;
 
         &--yellow {
             background-color: $accentColor;
