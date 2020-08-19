@@ -54,7 +54,7 @@
     }
 }
 
-
+// Burger menu
 .toggle {
     overflow: hidden;
 
@@ -66,11 +66,11 @@
         display: block;
         padding: 5px 30px 5px 5px;
         background-color: $accentColor;
-        color: #ffffff;
+        color: $backgroundColor;
         text-decoration: none;
 
         &--burger {
-            background-color: white;
+            background-color: $backgroundColor;
             color: $darkPink;
         }
     }

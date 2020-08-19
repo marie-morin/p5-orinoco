@@ -1,13 +1,14 @@
+// Total price
 .price {
     @include flexbox(flex-end);
     margin-top: 20px;
     padding-right: 20px;
     text-transform: uppercase;
     background-color: $darkPink;
-    color: #ffffff;
+    color: $backgroundColor;
 }
 
-
+// Message when no product available / AJAX request did not work
 .empty {
     margin: 20px auto;
     padding: 30px;

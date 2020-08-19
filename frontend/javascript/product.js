@@ -6,10 +6,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const search = window.location.search;
 
     if (!search) return;
+    // Extracting id from url
     const sliceId = search.split('=')[1];
 
     if (!productDestination || !productTemplate || !sliceId) return;
 
+    // Fetching product
     const data = getData("http://localhost:3000/api/teddies/" + sliceId);
 
     if (!data) return;
@@ -26,6 +28,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
             if (imageUrl && name && description && price && _id) {
+                // Giving the hero the product's name
                 document.querySelector(".hero__title").textContent = name;
 
                 const newProduct = document.importNode(productTemplate.content, true);
@@ -41,6 +44,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 productImage.setAttribute("alt", description);
                 productImage.src = imageUrl;
 
+                // Creating an option for every entry in colors array
                 colors.forEach(color => {
                     const newColor = document.createElement("option");
                     newColor.textContent = color;
@@ -57,6 +61,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (!submitBtn) return;
 
             submitBtn.addEventListener("click", function (e) {
+
+                // Storing data form form in localStorage using product name as "key"
                 const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
                 const quantity = document.getElementById("quantity").value;
                 const color = document.getElementById("color");

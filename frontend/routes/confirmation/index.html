@@ -10,109 +10,114 @@
 </head>
 
 <body>
-    <!-- ========== HEADER ========== -->
-    <header>
-        <div class="header container container--header">
-            <!-- Logo + Toggle Navigation -->
-            <div class="header__heading">
-                <!-- Toggle Navigation only appears under 850px -->
-                <nav class="toggle">
-                    <a href="#" class="toggle__link toggle__link--burger" id="burger">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="toggle__links" id="myLinks">
-                        <a href="../../index.html" class="toggle__link">Shop</a>
-                        <a href="#" class="toggle__link">About</a>
-                        <a href="#" class="toggle__link">Reviews</a>
+    <div class="flexContainer">
+        <div>
+            <!-- ========== HEADER ========== -->
+            <header>
+                <div class="header container container--header">
+                    <!-- Logo + Toggle Navigation -->
+                    <div class="header__heading">
+                        <!-- Toggle Navigation only appears under 850px -->
+                        <nav class="toggle">
+                            <a href="#" class="toggle__link toggle__link--burger" id="burger">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <div class="toggle__links" id="myLinks">
+                                <a href="../../index.html" class="toggle__link">Shop</a>
+                                <a href="#" class="toggle__link">About</a>
+                                <a href="#" class="toggle__link">Reviews</a>
+                            </div>
+                        </nav>
+                        <a class="header__logo" href="../../index.html">OrinoBear</a>
                     </div>
-                </nav>
-                <a class="header__logo" href="../../index.html">OrinoBear</a>
-            </div>
 
-            <nav class="no-toggle">
-                <ul class="header__nav">
-                    <!-- Following links disappear under 850xp -->
-                    <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
-                    <li class="header__link header__link--text"><a href="#">About</a></li>
-                    <li class="header__link header__link--text"><a href="#">Reviews</a></li>
-                    <!-- Following links always visible-->
-                    <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a></li>
-                    <li class="header__link"><a href="../cart/index.html"><i
-                                class="fas fa-shopping-cart header__icon"></i></a></li>
-                </ul>
-            </nav>
+                    <nav class="no-toggle">
+                        <ul class="header__nav">
+                            <!-- Following links disappear under 850xp -->
+                            <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
+                            <li class="header__link header__link--text"><a href="#">About</a></li>
+                            <li class="header__link header__link--text"><a href="#">Reviews</a></li>
+                            <!-- Following links always visible-->
+                            <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
+                            <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a>
+                            </li>
+                            <li class="header__link"><a href="../cart/index.html"><i
+                                        class="fas fa-shopping-cart header__icon"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+
+            <!-- ========== HERO ========== -->
+            <section class="hero">
+                <h1 class="hero__title">Thank you for your order !</h1>
+            </section>
+
+
+            <!-- ========== MAIN ========== -->
+            <main class="greetings">
+
+                <div class="greetings__infos">
+                    <p>
+                        <span class="greetings__name"></span>, your order has been confirmed, and we thank you for it !
+                    </p>
+                    <p>
+                        Your order's identification number is <span class="greetings__orderId"></span>.
+                    </p>
+                    <p>You will shortly receive an email at <span class="greetings__email"></span> containing the
+                        following steps and your shipping informations.</p>
+
+                    <p>BYE !</p>
+                </div>
+
+                <div class="greetings__summary">
+                    Order Number : <span class="greetings__orderId"></span>
+                    <div class="greetings__destination"></div>
+
+                    <!-- <div class="greetings__product">
+                        <p></p>
+                        <p></p>
+                    </div>
+        
+                    <div class="greetings__product">
+                        <p></p>
+                        <p></p>
+                    </div> -->
+
+                    <div class="greetings__product">
+                        <p>Total</p>
+                        <p>$<span class="greetings__total"></span></p>
+                    </div>
+                </div>
+            </main>
         </div>
-    </header>
 
 
-
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-        <h1 class="hero__title">Thank you for your order !</h1>
-    </section>
-
-    <!-- ========== MAIN ========== -->
-
-    <main class="greetings">
-
-        <div class="greetings__infos">
-            <p>
-                <span class="greetings__name"></span>, your order has been confirmed, and we thank you for it !
-            </p>
-            <p>
-                Your order's identification number is <span class="greetings__orderId"></span>.
-            </p>
-            <p>You will shortly receive an email at <span class="greetings__email"></span> containing the
-                following steps and your shipping informations.</p>
-
-            <p>BYE !</p>
+        <div>
+            <!-- ========== FOOTER ========== -->
+            <footer class="footer">
+                <article class="footer__section">
+                    <h2 class="footer__title">Orinoco</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </article>
+                <article class="footer__section">
+                    <h2 class="footer__title">Informations</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Legals</a></li>
+                        <li><a href="#">Sales Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </article>
+            </footer>
         </div>
-
-        <div class="greetings__summary">
-            Order Number : <span class="greetings__orderId"></span>
-            <div class="greetings__destination"></div>
-
-            <!-- <div class="greetings__product">
-                <p></p>
-                <p></p>
-            </div>
-
-            <div class="greetings__product">
-                <p></p>
-                <p></p>
-            </div> -->
-
-            <div class="greetings__product">
-                <p>Total</p>
-                <p>$<span class="greetings__total"></span></p>
-            </div>
-        </div>
-    </main>
-
-
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <article class="footer__section">
-            <h2 class="footer__title">Orinoco</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Reviews</a></li>
-            </ul>
-        </article>
-        <article class="footer__section">
-            <h2 class="footer__title">Informations</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Legals</a></li>
-                <li><a href="#">Sales Conditions</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-        </article>
-    </footer>
+    </div>
 
 
     <!-- ========== SCRIPTS ========== -->

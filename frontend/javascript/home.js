@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     if (!productDestination) return;
 
+    // Fetching products
     const data = getData("http://localhost:3000/api/teddies");
 
     if (!data) return;

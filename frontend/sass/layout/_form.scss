@@ -4,7 +4,7 @@
     padding: 20px;
     text-align: center;
     background-color: $darkPink;
-    color: #ffffff;
+    color: $backgroundColor;
     box-shadow: 0 0 15px #8a8a8a;
 
     @media screen and (max-width: $medium + 100) {

@@ -10,130 +10,136 @@
 </head>
 
 <body>
-    <!-- ========== HEADER ========== -->
-    <header>
-        <div class="header container container--header">
-            <!-- Logo + Toggle Navigation -->
-            <div class="header__heading">
-                <!-- Toggle Navigation only appears under 850px -->
-                <nav class="toggle">
-                    <a href="#" class="toggle__link toggle__link--burger" id="burger">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="toggle__links" id="myLinks">
-                        <a href="../../index.html" class="toggle__link">Shop</a>
-                        <a href="#" class="toggle__link">About</a>
-                        <a href="#" class="toggle__link">Reviews</a>
+    <div class="flexContainer">
+        <div>
+            <!-- ========== HEADER ========== -->
+            <header>
+                <div class="header container container--header">
+                    <!-- Logo + Toggle Navigation -->
+                    <div class="header__heading">
+                        <!-- Toggle Navigation only appears under 850px -->
+                        <nav class="toggle">
+                            <a href="#" class="toggle__link toggle__link--burger" id="burger">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <div class="toggle__links" id="myLinks">
+                                <a href="../../index.html" class="toggle__link">Shop</a>
+                                <a href="#" class="toggle__link">About</a>
+                                <a href="#" class="toggle__link">Reviews</a>
+                            </div>
+                        </nav>
+                        <a class="header__logo" href="../../index.html">OrinoBear</a>
                     </div>
-                </nav>
-                <a class="header__logo" href="../../index.html">OrinoBear</a>
-            </div>
 
-            <nav class="no-toggle">
-                <ul class="header__nav">
-                    <!-- Following links disappear under 850xp -->
-                    <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
-                    <li class="header__link header__link--text"><a href="#">About</a></li>
-                    <li class="header__link header__link--text"><a href="#">Reviews</a></li>
-                    <!-- Following links always visible-->
-                    <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a></li>
-                    <li class="header__link"><a href="../cart/index.html"><i
-                                class="fas fa-shopping-cart header__icon"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
-
-    <!-- ========== HERO ========== -->
-
-    <section class="hero">
-        <h1 class="hero__title"></h1>
-    </section>
-
-
-
-    <!-- ========== PRODUCT ========== -->
-
-    <main>
-        <div class="container product__container">
-            <div id="destination" class="product product--noShadow"></div>
-
-
-            <template id="template">
-                <div class="product__showoff">
-                    <img class="product__image product__image--minWidth" src="" alt="">
+                    <nav class="no-toggle">
+                        <ul class="header__nav">
+                            <!-- Following links disappear under 850xp -->
+                            <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
+                            <li class="header__link header__link--text"><a href="#">About</a></li>
+                            <li class="header__link header__link--text"><a href="#">Reviews</a></li>
+                            <!-- Following links always visible-->
+                            <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
+                            <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a>
+                            </li>
+                            <li class="header__link"><a href="../cart/index.html"><i
+                                        class="fas fa-shopping-cart header__icon"></i></a></li>
+                        </ul>
+                    </nav>
                 </div>
-
-                <form class="product__infos" action="../cart/index.html">
-                    <h2 class="product__name"></h2>
-                    <p class="product__description"></p>
-                    <p class="product__price"></p>
-
-                    <h3 class="product__section">Personalize your friend :</h3>
-                    <select class="product__select" name="color" id="color" required>
-                        <option value="">Please choose a color</option>
-                    </select>
-
-                    <h3 class="product__section">Choose you friend's size</h3>
-                    <select class="product__select" name="size" id="size" required>
-                        <option value="">Please choose a size</option>
-                        <option value="ten">Ten inchs</option>
-                        <option value="fiftheen">Fiftheen inchs</option>
-                        <option value="twenty">Twenty inchs</option>
-                    </select>
-
-                    <h3 class="product__section">Quantity</h3>
-                    <select class="product__select" name="quantity" id="quantity" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-
-                    <h3 class="product__section"></h3>
-                    <div class="product__switch">
-                        <input type="radio" id="yes" name="gift" value="yes" checked>
-                        <label for="yes">Yes</label>
-                        <input type="radio" id="no" name="gift" value="no">
-                        <label for="no">No</label>
-                    </div>
-
-                    <div class="mainBtn mainBtn--left">
-                        <input type="submit" value="Add to cart" id="submit" class="mainBtn__btn">
-                    </div>
-                </form>
-            </template>
+            </header>
 
 
+            <!-- ========== HERO ========== -->
+            <section class="hero">
+                <h1 class="hero__title"></h1>
+            </section>
 
+
+            <!-- ========== PRODUCT ========== -->
+
+            <main>
+                <div class="container product__container">
+
+                    <!-- Destination for des fetched product -->
+                    <div id="destination" class="product product--noShadow"></div>
+
+                    <!-- Template for product display and filling -->
+                    <template id="template">
+                        <div class="product__showoff">
+                            <img class="product__image product__image--minWidth" src="" alt="">
+                        </div>
+
+                        <form class="product__infos" action="../cart/index.html">
+                            <h2 class="product__name"></h2>
+                            <p class="product__description"></p>
+                            <p class="product__price"></p>
+
+                            <!-- Color personalisation -->
+                            <h3 class="product__section">Personalize your friend :</h3>
+                            <select class="product__select" name="color" id="color" required>
+                                <option value="">Please choose a color</option>
+                            </select>
+
+                            <!-- Size personalisation -->
+                            <h3 class="product__section">Choose you friend's size</h3>
+                            <select class="product__select" name="size" id="size" required>
+                                <option value="">Please choose a size</option>
+                                <option value="ten">Ten inchs</option>
+                                <option value="fiftheen">Fiftheen inchs</option>
+                                <option value="twenty">Twenty inchs</option>
+                            </select>
+
+                            <!-- Quantity selection -->
+                            <h3 class="product__section">Quantity</h3>
+                            <select class="product__select" name="quantity" id="quantity" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <!-- Gift selection -->
+                            <h3 class="product__section"></h3>
+                            <div class="product__switch">
+                                <input type="radio" id="yes" name="gift" value="yes" checked>
+                                <label for="yes">Yes</label>
+                                <input type="radio" id="no" name="gift" value="no">
+                                <label for="no">No</label>
+                            </div>
+
+                            <!-- Add to cart Button -->
+                            <div class="mainBtn mainBtn--left">
+                                <input type="submit" value="Add to cart" id="submit" class="mainBtn__btn">
+                            </div>
+                        </form>
+                    </template>
+                </div>
+            </main>
         </div>
-    </main>
 
-
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <article class="footer__section">
-            <h2 class="footer__title">Orinoco</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Reviews</a></li>
-            </ul>
-        </article>
-        <article class="footer__section">
-            <h2 class="footer__title">Informations</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Legals</a></li>
-                <li><a href="#">Sales Conditions</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-        </article>
-    </footer>
+        <div>
+            <!-- ========== FOOTER ========== -->
+            <footer class="footer">
+                <article class="footer__section">
+                    <h2 class="footer__title">Orinoco</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </article>
+                <article class="footer__section">
+                    <h2 class="footer__title">Informations</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Legals</a></li>
+                        <li><a href="#">Sales Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </article>
+            </footer>
+        </div>
+    </div>
 
 
     <!-- ========== SCRIPTS ========== -->

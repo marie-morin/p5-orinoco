@@ -10,132 +10,142 @@
 </head>
 
 <body>
-    <!-- ========== HEADER ========== -->
-    <header>
-        <div class="header container container--header">
-            <!-- Logo + Toggle Navigation -->
-            <div class="header__heading">
-                <!-- Toggle Navigation only appears under 850px -->
-                <nav class="toggle">
-                    <a href="#" class="toggle__link toggle__link--burger" id="burger">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="toggle__links" id="myLinks">
-                        <a href="../../index.html" class="toggle__link">Shop</a>
-                        <a href="#" class="toggle__link">About</a>
-                        <a href="#" class="toggle__link">Reviews</a>
+    <div class="flexContainer">
+        <div>
+            <!-- ========== HEADER ========== -->
+            <header>
+                <div class="header container container--header">
+                    <!-- Logo + Toggle Navigation -->
+                    <div class="header__heading">
+                        <!-- Toggle Navigation only appears under 850px -->
+                        <nav class="toggle">
+                            <a href="#" class="toggle__link toggle__link--burger" id="burger">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <div class="toggle__links" id="myLinks">
+                                <a href="../../index.html" class="toggle__link">Shop</a>
+                                <a href="#" class="toggle__link">About</a>
+                                <a href="#" class="toggle__link">Reviews</a>
+                            </div>
+                        </nav>
+                        <a class="header__logo" href="../../index.html">OrinoBear</a>
                     </div>
-                </nav>
-                <a class="header__logo" href="../../index.html">OrinoBear</a>
-            </div>
 
-            <nav class="no-toggle">
-                <ul class="header__nav">
-                    <!-- Following links disappear under 850xp -->
-                    <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
-                    <li class="header__link header__link--text"><a href="#">About</a></li>
-                    <li class="header__link header__link--text"><a href="#">Reviews</a></li>
-                    <!-- Following links always visible-->
-                    <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a></li>
-                    <li class="header__link"><a href="#"><i class="fas fa-shopping-cart header__icon"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
-
-    <!-- ========== HERO ========== -->
-
-    <section class="hero">
-        <h1 class="hero__title">Your Cart</h1>
-    </section>
-
-
-
-
-    <!-- ========== MAIN ========== -->
-
-    <main class="container">
-        <div class="destination" id="destination">
-            <!-- <article class="product">
-                <div class="product__showoff">
-                    <img class="product__image product__image--fixedWidth" src="" alt="">
+                    <nav class="no-toggle">
+                        <ul class="header__nav">
+                            <!-- Following links disappear under 850xp -->
+                            <li class="header__link header__link--text"><a href="../../index.html">Shop</a></li>
+                            <li class="header__link header__link--text"><a href="#">About</a></li>
+                            <li class="header__link header__link--text"><a href="#">Reviews</a></li>
+                            <!-- Following links always visible-->
+                            <li class="header__link"><a href="#"><i class="far fa-heart header__icon"></i></a></li>
+                            <li class="header__link"><a href="#"><i class="fas fa-user-circle header__icon"></i></a>
+                            </li>
+                            <li class="header__link"><a href="#"><i class="fas fa-shopping-cart header__icon"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="product__infos">
-                    <h2 class="product__name"></h2>
-                    <p class="product__description"></p>
-                    <p class="product__color">Couleur : <span></span></p>
-                    <p class="product__price">$</p>
-                    <select class="product__select" name="personalisation" id="personalisation">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="tree">3</option>
-                    </select><br>
-                    <a class="product__remove" href="../cart/index.html">Remove</a>
+            </header>
+
+
+            <!-- ========== HERO ========== -->
+            <section class="hero">
+                <h1 class="hero__title">Your Cart</h1>
+            </section>
+
+
+            <!-- ========== MAIN ========== -->
+            <main class="container">
+
+                <!-- Destination for the fetched products -->
+                <div class="destination" id="destination">
+
+                    <!-- Template for the fetched products -->
+                    <!-- <article class="product">
+                        <div class="product__showoff">
+                            <img class="product__image product__image--fixedWidth" src="" alt="">
+                        </div>
+                        <div class="product__infos">
+                            <h2 class="product__name"></h2>
+                            <p class="product__description"></p>
+                            <p class="product__color">Couleur : <span></span></p>
+                            <p class="product__price">$</p>
+                            <select class="product__select" name="personalisation" id="personalisation">
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                                <option value="tree">3</option>
+                            </select><br>
+                            <a class="product__remove" href="../cart/index.html">Remove</a>
+                        </div>
+                    </article> -->
                 </div>
-            </article> -->
+
+                <!-- Delete all porducts in cart button -->
+                <div class="mainBtn"></div>
+
+                <!-- Total price section -->
+                <div class="price">
+                    <p class="price__total">Total Cost = $</p>
+                    <p class="total-price">0</p>
+                </div>
+
+                <!-- Purchase form -->
+                <form class="cartForm" action="../confirmation/index.html">
+                    <h2>Your Informations</h2>
+                    <div>
+                        <label for="first">First Name </label><br>
+                        <input type="text" name="first" id="first" placeholder="John" required>
+                    </div>
+                    <div>
+                        <label for="last">Last Name </label><br>
+                        <input type="text" name="last" id="last" placeholder="Doe" required>
+                    </div>
+                    <div>
+                        <label for="adress">Adress </label><br>
+                        <input type="text" name="adress" id="adress" placeholder="90210 Melrose Avenue" required>
+                    </div>
+                    <div>
+                        <label for="city">City </label><br>
+                        <input type="text" name="city" id="city" placeholder="Los Angeles" required>
+                    </div>
+                    <div>
+                        <label for="email">Email </label><br>
+                        <input type="email" name="email" id="email" placeholder="john.smith@gmail.com" required>
+                    </div>
+                    <div class="mainBtn">
+                        <input type="submit" value="BUY" class="mainBtn__btn mainBtn__btn--yellow mainBtn__btn--form">
+                    </div>
+                </form>
+            </main>
         </div>
-
-        <div class="mainBtn"></div>
-
-        <div class="price">
-            <p class="price__total">Total Cost = $</p>
-            <p class="total-price">0</p>
+        <div>
+            <!-- ========== FOOTER ========== -->
+            <footer class="footer">
+                <article class="footer__section">
+                    <h2 class="footer__title">Orinoco</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </article>
+                <article class="footer__section">
+                    <h2 class="footer__title">Informations</h2>
+                    <hr class="footer__divider">
+                    <ul class="footer__list">
+                        <li><a href="#">Legals</a></li>
+                        <li><a href="#">Sales Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </article>
+            </footer>
         </div>
-
-        <form class="cartForm" action="../confirmation/index.html">
-            <h2>Your Informations</h2>
-            <div>
-                <label for="first">First Name </label><br>
-                <input type="text" name="first" id="first" placeholder="John" required>
-            </div>
-            <div>
-                <label for="last">Last Name </label><br>
-                <input type="text" name="last" id="last" placeholder="Doe" required>
-            </div>
-            <div>
-                <label for="adress">Adress </label><br>
-                <input type="text" name="adress" id="adress" placeholder="90210 Melrose Avenue" required>
-            </div>
-            <div>
-                <label for="city">City </label><br>
-                <input type="text" name="city" id="city" placeholder="Los Angeles" required>
-            </div>
-            <div>
-                <label for="email">Email </label><br>
-                <input type="email" name="email" id="email" placeholder="john.smith@gmail.com" required>
-            </div>
-            <div class="mainBtn">
-                <input type="submit" value="BUY" class="mainBtn__btn mainBtn__btn--yellow mainBtn__btn--form">
-            </div>
-        </form>
-    </main>
+    </div>
 
 
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <article class="footer__section">
-            <h2 class="footer__title">Orinoco</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Reviews</a></li>
-            </ul>
-        </article>
-        <article class="footer__section">
-            <h2 class="footer__title">Informations</h2>
-            <hr class="footer__divider">
-            <ul class="footer__list">
-                <li><a href="#">Legals</a></li>
-                <li><a href="#">Sales Conditions</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-        </article>
-    </footer>
 
 
     <!-- ========== SCRIPTS ========== -->

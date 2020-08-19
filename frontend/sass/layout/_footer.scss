@@ -3,7 +3,7 @@
     margin-top: 30px;
     padding: 30px 0;
     background-color: $darkPink;
-    color: #ffffff;
+    color: $backgroundColor;
 
     @media screen and (max-width: $small + 100) {
         flex-direction: column;
@@ -41,7 +41,7 @@
 
         a {
             font-weight: 300;
-            color: #ffffff;
+            color: $backgroundColor;
             text-decoration: none;
 
             &:hover {

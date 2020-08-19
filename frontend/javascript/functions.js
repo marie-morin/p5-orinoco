@@ -1,3 +1,4 @@
+// Burger menu display
 function displayToogleNavigation() {
     const links = document.querySelector("#myLinks");
     if (!links) return;
@@ -15,12 +16,14 @@ function displayToogleNavigation() {
     }
 }
 
+// AJAX GET
 async function getData(url) {
     const dataStream = await fetch(url);
     const data = await dataStream.json();
     return data;
 }
 
+// AJAX POST
 async function postData(url, data) {
     const options = {
         method: 'POST',
@@ -32,8 +35,8 @@ async function postData(url, data) {
     return fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem("orderRecap", JSON.stringify(data));
-            window.location.replace("../confirmation/index.html");
+            localStorage.setItem("orderRecap", JSON.stringify(data)); // Stocks data in localStorage
+            window.location.replace("../confirmation/index.html"); // Redirecting to geetings page
         })
         .catch(err => console.error(err))
 }

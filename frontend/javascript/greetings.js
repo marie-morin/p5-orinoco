@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const mainContainer = document.querySelector(".greetings");
     if (!mainContainer) return;
 
+    // Redirecting to home page if page is reload
     if (localStorage.length == 0) {
         mainContainer.innerHTML = "";
         window.location.replace("../../index.html");
@@ -15,6 +16,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     if (!nameElt || !emailElt || !priceElt || !orderElt || !destination) return;
 
+    // Geting informations from localStorage and assigning its values to corresponding DOM elements
     const orderRecap = JSON.parse(localStorage.getItem('orderRecap'));
 
     nameElt.textContent = orderRecap.contact.firstName;
@@ -32,5 +34,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <p></p>`;
         destination.appendChild(productElt);
     })
+    // Once geeting content in created, empty localStorage
     localStorage.clear();
 });
