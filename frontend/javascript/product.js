@@ -63,9 +63,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         submitBtn.addEventListener("click", function (e) {
             // Storing data form form in localStorage using product name as "key" (supresing whitespace)
-            const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
+            const name = document.querySelector(".product__name").textContent.replace(/\s/g, "");
             const color = document.getElementById("color");
             const colorSelected = color.options[color.selectedIndex].text;
+            const orderName = name + colorSelected.replace(/\s/g, "");
             let quantity = parseInt(document.getElementById("quantity").value);
 
             // If orderName matchs the key of an already stored item in localStorage
@@ -74,7 +75,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 for (let i = 0; i < localStorage.length; i++) {
                     const key = localStorage.key(i);
                     const previousColor = JSON.parse(localStorage.getItem(key)).color;
-                    console.log(previousColor);
 
                     if (key == orderName && colorSelected == previousColor) {
                         quantity += parseInt(JSON.parse(localStorage.getItem(key)).quantity);
@@ -85,11 +85,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             const orderContent = {
                 "id": sliceId,
+                "name": name,
                 "quantity": quantity,
                 "color": colorSelected,
                 "price": price.toString(),
             };
-            localStorage.setItem(orderName, JSON.stringify(orderContent));
+            if (colorSelected != "Please chose a color") {
+                localStorage.setItem(orderName, JSON.stringify(orderContent));
+            }
         })
     })
 });
