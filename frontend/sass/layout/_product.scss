@@ -2,6 +2,7 @@
     @include flexbox();
     margin: 20px 0;
     box-shadow: 0px 0px 7px 2px rgba(240, 240, 240, 1);
+    color: inherit;
 
     //  Home page
     &--column {
@@ -40,10 +41,12 @@
 
         &--fixedWidth {
             width: 350px;
+            height: 230px;
             margin-left: 15px;
 
             @media screen and (max-width: $small + 200) {
                 width: 100%;
+                height: auto;
                 margin-left: 0px;
             }
         }
@@ -61,6 +64,11 @@
         font-family: $pangolin;
         text-transform: uppercase;
         color: $darkPink;
+
+        a {
+            text-decoration: none;
+            color: $darkPink;
+        }
     }
 
     &__description {

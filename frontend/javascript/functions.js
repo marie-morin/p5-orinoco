@@ -24,7 +24,7 @@ async function getData(url) {
 }
 
 // AJAX POST
-async function postData(url, data) {
+async function postData(url, data, total) {
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
@@ -35,8 +35,24 @@ async function postData(url, data) {
     return fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem("orderRecap", JSON.stringify(data)); // Stocks data in localStorage
-            window.location.replace("../confirmation/index.html"); // Redirecting to geetings page
+            // Stocks data in localStorage
+            localStorage.setItem("orderRecap", JSON.stringify(data));
+            // Storing total price in localStorage
+            localStorage.setItem("price", total.toString());
+            // Redirecting to geetings page
+            window.location.replace("../confirmation/index.html");
         })
         .catch(err => console.error(err))
+}
+
+// Calculating cart total price
+function calculPrice(destination) {
+    let sum = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const usableKey = JSON.parse(localStorage.getItem(key));
+        sum += usableKey.quantity * usableKey.price;
+    }
+    destination.textContent = sum;
+    return sum;
 }

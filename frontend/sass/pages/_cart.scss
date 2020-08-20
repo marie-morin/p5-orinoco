@@ -17,3 +17,8 @@
     border: 2px solid $darkPink;
     color: $darkPink;
 }
+
+// Messgae when user tries to buy empty cart
+.attention {
+    color: $accentColor;
+}

@@ -250,6 +250,7 @@ body {
   align-items: center;
   margin: 20px 0;
   box-shadow: 0px 0px 7px 2px #f0f0f0;
+  color: inherit;
 }
 .product--column {
   flex-direction: column;
@@ -286,11 +287,13 @@ body {
 }
 .product__image--fixedWidth {
   width: 350px;
+  height: 230px;
   margin-left: 15px;
 }
 @media screen and (max-width: 850px) {
   .product__image--fixedWidth {
     width: 100%;
+    height: auto;
     margin-left: 0px;
   }
 }
@@ -305,6 +308,10 @@ body {
 .product__name {
   font-family: "Pangolin", cursive;
   text-transform: uppercase;
+  color: #794355;
+}
+.product__name a {
+  text-decoration: none;
   color: #794355;
 }
 .product__description {
@@ -401,6 +408,10 @@ body {
   text-transform: uppercase;
   border: 2px solid #794355;
   color: #794355;
+}
+
+.attention {
+  color: #fac124;
 }
 
 .greetings {

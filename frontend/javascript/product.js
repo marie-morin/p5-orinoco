@@ -17,64 +17,79 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (!data) return;
 
     data.then(product => {
-            const {
-                imageUrl,
-                name,
-                description,
-                price,
-                _id,
-                colors
-            } = product;
+        const {
+            imageUrl,
+            name,
+            description,
+            price,
+            _id,
+            colors
+        } = product;
 
 
-            if (imageUrl && name && description && price && _id) {
-                // Giving the hero the product's name
-                document.querySelector(".hero__title").textContent = name;
+        if (imageUrl && name && description && price && _id) {
+            // Giving the hero the product's name
+            document.querySelector(".hero__title").textContent = name;
 
-                const newProduct = document.importNode(productTemplate.content, true);
-                const productName = newProduct.querySelector(".product__name");
-                const productDescription = newProduct.querySelector(".product__description");
-                const productPrice = newProduct.querySelector(".product__price");
-                const productImage = newProduct.querySelector(".product__image");
-                const productColor = newProduct.querySelector(".product__select");
+            const newProduct = document.importNode(productTemplate.content, true);
+            const productName = newProduct.querySelectorAll(".product__name");
+            const productDescription = newProduct.querySelector(".product__description");
+            const productPrice = newProduct.querySelector(".product__price");
+            const productImage = newProduct.querySelector(".product__image");
+            const productColor = newProduct.querySelector(".product__select");
 
-                productName.textContent = name;
-                productDescription.textContent = description;
-                productPrice.textContent = `$${price}`;
-                productImage.setAttribute("alt", description);
-                productImage.src = imageUrl;
+            productName.forEach(element => {
+                element.textContent = name;
+            });
 
-                // Creating an option for every entry in colors array
-                colors.forEach(color => {
-                    const newColor = document.createElement("option");
-                    newColor.textContent = color;
-                    newColor.setAttribute("value", color);
-                    productColor.appendChild(newColor);
-                });
+            productDescription.textContent = description;
+            productPrice.textContent = `$${price}`;
+            productImage.setAttribute("alt", description);
+            productImage.src = imageUrl;
 
-                productDestination.appendChild(newProduct);
+            // Creating an option for every entry in colors array
+            colors.forEach(color => {
+                const newColor = document.createElement("option");
+                newColor.textContent = color;
+                newColor.setAttribute("value", color);
+                productColor.appendChild(newColor);
+            });
+
+            productDestination.appendChild(newProduct);
+        }
+
+        const submitBtn = document.getElementById("submit");
+        if (!submitBtn) return;
+
+        submitBtn.addEventListener("click", function (e) {
+            // Storing data form form in localStorage using product name as "key" (supresing whitespace)
+            const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
+            const color = document.getElementById("color");
+            const colorSelected = color.options[color.selectedIndex].text;
+            let quantity = parseInt(document.getElementById("quantity").value);
+
+            // If orderName matchs the key of an already stored item in localStorage
+            // -> supress the element and replace it with a new one which you add the previous element's quantity to
+            if (localStorage.length >= 1) {
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const previousColor = JSON.parse(localStorage.getItem(key)).color;
+                    console.log(previousColor);
+
+                    if (key == orderName && colorSelected == previousColor) {
+                        quantity += parseInt(JSON.parse(localStorage.getItem(key)).quantity);
+                        localStorage.removeItem(orderName);
+                    }
+                }
             }
+
+            const orderContent = {
+                "id": sliceId,
+                "quantity": quantity,
+                "color": colorSelected,
+                "price": price.toString(),
+            };
+            localStorage.setItem(orderName, JSON.stringify(orderContent));
         })
-
-        .then(() => {
-            const submitBtn = document.getElementById("submit");
-            if (!submitBtn) return;
-
-            submitBtn.addEventListener("click", function (e) {
-
-                // Storing data form form in localStorage using product name as "key"
-                const orderName = document.querySelector(".product__name").textContent.replace(/\s/g, "");
-                const quantity = document.getElementById("quantity").value;
-                const color = document.getElementById("color");
-                if (!orderName || !quantity || !color) return;
-
-                const colorSelected = color.options[color.selectedIndex].text;
-                const orderContent = {
-                    "id": sliceId,
-                    "quantity": quantity,
-                    "color": colorSelected
-                };
-                localStorage.setItem(orderName, JSON.stringify(orderContent));
-            })
-        })
+    })
 });

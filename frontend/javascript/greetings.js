@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         window.location.replace("../../index.html");
     }
 
+    // Finding DOM destination elements to fill with data
     const nameElt = document.querySelector(".greetings__name");
     const emailElt = document.querySelector(".greetings__email");
     const priceElt = document.querySelector(".greetings__total");
@@ -28,12 +29,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const orderedProducts = orderRecap.products;
     orderedProducts.forEach(element => {
+        const quantity = JSON.parse(localStorage.getItem(element.name)).quantity;
         const productElt = document.createElement("div");
         productElt.classList.add("greetings__product");
-        productElt.innerHTML = `<p>${element.name}</p>
-        <p></p>`;
+        productElt.innerHTML = `<p>${element.name}</p><p>${quantity}</p>`;
         destination.appendChild(productElt);
     })
+
+    priceElt.textContent = localStorage.getItem("price");
+
     // Once geeting content in created, empty localStorage
     localStorage.clear();
 });
