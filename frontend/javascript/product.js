@@ -3,10 +3,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const productDestination = document.getElementById("destination");
     const productTemplate = document.getElementById("template");
-    const search = window.location.search;
+    let alertMessage;
 
-    if (!search) return;
     // Extracting id from url
+    const search = window.location.search;
+    if (!search) return;
     const sliceId = search.split('=')[1];
 
     if (!productDestination || !productTemplate || !sliceId) return;
@@ -31,12 +32,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // Giving the hero the product's name
             document.querySelector(".hero__title").textContent = name;
 
+            // Importing template
             const newProduct = document.importNode(productTemplate.content, true);
+
+            // Filling template
             const productName = newProduct.querySelectorAll(".product__name");
             const productDescription = newProduct.querySelector(".product__description");
             const productPrice = newProduct.querySelector(".product__price");
             const productImage = newProduct.querySelector(".product__image");
             const productColor = newProduct.querySelector(".product__select");
+            alertMessage = newProduct.querySelector(".product__warning");
 
             productName.forEach(element => {
                 element.textContent = name;
@@ -61,12 +66,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const submitBtn = document.getElementById("submit");
         if (!submitBtn) return;
 
+
         submitBtn.addEventListener("click", function (e) {
+            alertMessage.textContent = "";
+
             // Storing data form form in localStorage using product name as "key" (supresing whitespace)
-            const name = document.querySelector(".product__name").textContent.replace(/\s/g, "");
+            const compressedName = whiteSpaceSupressor(document.querySelector(".product__name").textContent);
             const color = document.getElementById("color");
             const colorSelected = color.options[color.selectedIndex].text;
-            const orderName = name + colorSelected.replace(/\s/g, "");
+            const orderName = compressedName + whiteSpaceSupressor(colorSelected);
             let quantity = parseInt(document.getElementById("quantity").value);
 
             // If orderName matchs the key of an already stored item in localStorage
@@ -77,7 +85,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     const previousColor = JSON.parse(localStorage.getItem(key)).color;
 
                     if (key == orderName && colorSelected == previousColor) {
-                        quantity += parseInt(JSON.parse(localStorage.getItem(key)).quantity);
+                        const previousQuantity = parseInt(JSON.parse(localStorage.getItem(key)).quantity);
+                        quantity = quantity + previousQuantity;
+                        if (quantity > 3) {
+                            quantity = 3;
+                            alertMessage.textContent = "Only 3 identical products can be added to cart.";
+                            e.preventDefault();
+                        }
                         localStorage.removeItem(orderName);
                     }
                 }
@@ -90,7 +104,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 "color": colorSelected,
                 "price": price.toString(),
             };
-            if (colorSelected != "Please chose a color") {
+
+            if (colors.indexOf(colorSelected) >= 0) {
                 localStorage.setItem(orderName, JSON.stringify(orderContent));
             }
         })

@@ -35,7 +35,6 @@ async function postData(url, data, total) {
     return fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            // console.log(JSON.parse(data));
             // Stocks data in localStorage
             localStorage.setItem("orderRecap", JSON.stringify(data));
             // Storing total price in localStorage
@@ -56,4 +55,9 @@ function calculPrice(destination) {
     }
     destination.textContent = sum;
     return sum;
+}
+
+// Supress whistespaces in string
+function whiteSpaceSupressor(string) {
+    return string.replace(/\s/g, "");
 }

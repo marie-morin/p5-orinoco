@@ -7,12 +7,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const products = [];
     let totalPrice;
 
-    if (!productsDestination || !deleteDestination || !form) return;
+    if (!productsDestination || !priceDestination || !deleteDestination || !form) return;
 
     // Searching for data in localStorage
     if (localStorage.length == 0) {
         // If localStorage empty, display message
-        productsDestination.innerHTML = "Aucun produits dans le panier";
+        productsDestination.innerHTML = "Your cart is empty";
         productsDestination.classList.add("empty");
     } else {
         // If localStorage contains something, create button to be able to empty cart
@@ -78,6 +78,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                     // Reporting selected quantity in cart
                     const options = article.querySelectorAll("#personalisation option");
+                    if (!options) return;
+
                     options.forEach(option => {
                         if (option.value == quantity) {
                             option.setAttribute("selected", "");
@@ -86,21 +88,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                     // Reafecting quantity value in localStorage when quantity select button is modify
                     const select = article.querySelector(".product__select");
+                    if (!select) return;
+
                     select.addEventListener("change", function (e) {
                         const orderName = key;
-                        const quantity = e.target.value;
-                        const color = usableKey.color;
-                        const orderContent = {
-                            "id": localID,
-                            "quantity": quantity,
-                            "color": color,
-                            "price": localPrice.toString()
-                        };
-                        localStorage.removeItem(key);
-                        localStorage.setItem(orderName, JSON.stringify(orderContent));
+                        const newQuantity = e.target.value;
+                        if (newQuantity > 0 && newQuantity <= 3) {
+                            const color = usableKey.color;
+                            const orderContent = {
+                                "id": localID,
+                                "quantity": newQuantity,
+                                "color": color,
+                                "price": localPrice.toString()
+                            };
+                            localStorage.removeItem(key);
+                            localStorage.setItem(orderName, JSON.stringify(orderContent));
 
-                        // Recalculating total price due
-                        totalPrice = calculPrice(priceDestination);
+                            // Recalculating total price due
+                            totalPrice = calculPrice(priceDestination);
+                        }
                     });
 
                     // Pushing the element's id in products array
@@ -122,10 +128,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // Listening for submit to POST
         form.addEventListener("submit", function (e) {
             e.preventDefault();
-
+            document.querySelector(".product__warning").textContent = "";
             // Blocking submit process if cart is empty + displaying message
             if (products.length == 0) {
-                productsDestination.innerHTML += "<br><br><span class='attention'>Votre panier est vide !</span>";
+                productsDestination.innerHTML += "<br><br><span class='attention'>Your cart must contain at least one product !</span>";
             } else {
                 const firstName = document.getElementById("first").value;
                 const lastName = document.getElementById("last").value;
@@ -133,6 +139,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const city = document.getElementById("city").value;
                 const email = document.getElementById("email").value;
 
+                const unwantedRegex = /[0-9]+/;
+
+                if (unwantedRegex.test(firstName) || unwantedRegex.test(lastName) || unwantedRegex.test(city)) {
+                    document.querySelector(".product__warning").textContent = "Your first name, last name and city must not contain numbers";
+                }
                 if (!firstName || !lastName || !address || !city || !email) return;
 
                 const contact = {
@@ -150,6 +161,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                 postData("http://localhost:3000/api/teddies/order", body, totalPrice);
             }
-        });
-    })
+        })
+    });
 });

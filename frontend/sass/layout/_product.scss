@@ -98,6 +98,10 @@
         color: $darkPink;
     }
 
+    &__warning {
+        color: darkred;
+    }
+
     // Gift checkbox (only on product page)
     &__switch {
         display: flex;

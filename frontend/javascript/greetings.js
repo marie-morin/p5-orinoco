@@ -30,27 +30,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Getting every product from products recap array
     const orderedProducts = orderRecap.products;
 
-    // Finding all the possible local keys
+    // Finding all the possible local keys and placing them in an array
     let localNames = [];
     orderedProducts.forEach(product => {
         product.colors.forEach(color => {
-            color = color.replace(/\s/g, "");
-            let newName = product.name + color;
-            if (localNames.indexOf(newName) == -1) {
-                localNames.push(newName);
-            }
+            let newName = whiteSpaceSupressor(product.name) + whiteSpaceSupressor(color);
+            if (localNames.indexOf(newName) == -1) localNames.push(newName);
         })
     });
 
+    // For every element in localStorage, trying to fing a match between the keys and localNames array's entries
+    // If so, insert it in DOM
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         const actualName = JSON.parse(localStorage.getItem(key)).name;
+        const fullColor = JSON.parse(localStorage.getItem(key)).color;
+        const quantity = JSON.parse(localStorage.getItem(key)).quantity;
         localNames.forEach(name => {
             if (key == name) {
                 const productElt = document.createElement("div");
                 productElt.classList.add("greetings__product");
-                const quantity = JSON.parse(localStorage.getItem(key)).quantity;
-                productElt.innerHTML = `<p>$${actualName}</p><p>${quantity}</p>`;
+                productElt.innerHTML = `<p>${actualName} : ${fullColor}</p><p>${quantity}</p>`;
                 destination.appendChild(productElt);
             }
         })
@@ -58,6 +58,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     priceElt.textContent = localStorage.getItem("price");
 
-    // Once geeting content in created, empty localStorage
-    // localStorage.clear();
+    // Once content is created, empty localStorage
+    localStorage.clear();
 });

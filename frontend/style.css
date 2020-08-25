@@ -336,6 +336,9 @@ body {
   background-color: #fac124;
   color: #794355;
 }
+.product__warning {
+  color: darkred;
+}
 .product__switch {
   display: flex;
   margin-top: 10px;
