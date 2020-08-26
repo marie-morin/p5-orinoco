@@ -143,23 +143,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                     if (unwantedRegex.test(firstName) || unwantedRegex.test(lastName) || unwantedRegex.test(city)) {
                         document.querySelector(".product__warning").textContent = "Your first name, last name and city must not contain numbers";
+                    } else {
+                        const contact = {
+                            firstName,
+                            lastName,
+                            address,
+                            city,
+                            email
+                        };
+
+                        const body = {
+                            contact,
+                            products
+                        };
+
+                        postData("http://localhost:3000/api/teddies/order", body, totalPrice);
                     }
-                    if (!firstName || !lastName || !address || !city || !email) return;
-
-                    const contact = {
-                        firstName,
-                        lastName,
-                        address,
-                        city,
-                        email
-                    };
-
-                    const body = {
-                        contact,
-                        products
-                    };
-
-                    postData("http://localhost:3000/api/teddies/order", body, totalPrice);
                 }
             })
         })
