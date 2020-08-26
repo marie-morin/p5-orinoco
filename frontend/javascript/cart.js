@@ -32,36 +32,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const data = getData("http://localhost:3000/api/teddies");
 
     data.then(data => {
-        if (!data.length) return;
+            if (!data.length) return;
 
-        data.forEach(product => {
-            const {
-                imageUrl,
-                name,
-                description,
-                price,
-                _id
-            } = product;
+            data.forEach(product => {
+                const {
+                    imageUrl,
+                    name,
+                    description,
+                    price,
+                    _id
+                } = product;
 
-            // Looping trougth localStorage to extract "id" key
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                const usableKey = JSON.parse(localStorage.getItem(key));
-                const localID = usableKey.id;
-                const quantity = usableKey.quantity;
-                const localPrice = usableKey.price;
+                // Looping trougth localStorage to extract "id" key
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    const usableKey = JSON.parse(localStorage.getItem(key));
+                    const localID = usableKey.id;
+                    const quantity = usableKey.quantity;
+                    const localPrice = usableKey.price;
 
-                // Searching for a match between fetched elements' id and "id" key in localStorage
-                // and display the coresponding element in cart
-                if (localID == _id) {
-                    const article = document.createElement("article");
-                    article.classList.add("product");
+                    // Searching for a match between fetched elements' id and "id" key in localStorage
+                    // and display the coresponding element in cart
+                    if (localID == _id) {
+                        const article = document.createElement("article");
+                        article.classList.add("product");
 
-                    article.innerHTML =
-                        `<div class="product__showoff">
+                        article.innerHTML =
+                            `<div class="product__showoff">
                             <img class="product__image product__image--fixedWidth" src="${imageUrl}" alt="${description}">
                         </div>
-                        <div class="product__infos">
+                        <div class="product__infos product__infos--cart">
                             <h2 class="product__name"><a href="../product/index.html?id=${_id}">${name}</a></h2>
                             <p class="product__description">${description}</p>
                             <p class="product__color">Couleur : ${usableKey.color}</p>
@@ -74,93 +74,98 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             <a id="${_id}" class="product__remove ${key}" href="../cart/index.html">Remove</a>
                         </div>`;
 
-                    productsDestination.appendChild(article);
+                        productsDestination.appendChild(article);
 
-                    // Reporting selected quantity in cart
-                    const options = article.querySelectorAll("#personalisation option");
-                    if (!options) return;
+                        // Reporting selected quantity in cart
+                        const options = article.querySelectorAll("#personalisation option");
+                        if (!options) return;
 
-                    options.forEach(option => {
-                        if (option.value == quantity) {
-                            option.setAttribute("selected", "");
-                        }
-                    })
+                        options.forEach(option => {
+                            if (option.value == quantity) {
+                                option.setAttribute("selected", "");
+                            }
+                        })
 
-                    // Reafecting quantity value in localStorage when quantity select button is modify
-                    const select = article.querySelector(".product__select");
-                    if (!select) return;
+                        // Reafecting quantity value in localStorage when quantity select button is modify
+                        const select = article.querySelector(".product__select");
+                        if (!select) return;
 
-                    select.addEventListener("change", function (e) {
-                        const orderName = key;
-                        const newQuantity = e.target.value;
-                        if (newQuantity > 0 && newQuantity <= 3) {
-                            const color = usableKey.color;
-                            const orderContent = {
-                                "id": localID,
-                                "quantity": newQuantity,
-                                "color": color,
-                                "price": localPrice.toString()
-                            };
+                        select.addEventListener("change", function (e) {
+                            const orderName = key;
+                            const newQuantity = e.target.value;
+                            if (newQuantity > 0 && newQuantity <= 3) {
+                                const color = usableKey.color;
+                                const orderContent = {
+                                    "id": localID,
+                                    "quantity": newQuantity,
+                                    "color": color,
+                                    "price": localPrice.toString()
+                                };
+                                localStorage.removeItem(key);
+                                localStorage.setItem(orderName, JSON.stringify(orderContent));
+
+                                // Recalculating total price due
+                                totalPrice = calculPrice(priceDestination);
+                            }
+                        });
+
+                        // Pushing the element's id in products array
+                        products.push(localID);
+
+                        // Removing element from localStorage and "remove" btn is clicked
+                        const removeBtn = article.querySelector(".product__remove");
+                        removeBtn.addEventListener("click", function (e) {
                             localStorage.removeItem(key);
-                            localStorage.setItem(orderName, JSON.stringify(orderContent));
+                        });
+                    }
 
-                            // Recalculating total price due
-                            totalPrice = calculPrice(priceDestination);
-                        }
-                    });
-
-                    // Pushing the element's id in products array
-                    products.push(localID);
-
-                    // Removing element from localStorage and "remove" btn is clicked
-                    const removeBtn = article.querySelector(".product__remove");
-                    removeBtn.addEventListener("click", function (e) {
-                        localStorage.removeItem(key);
-                    });
-                }
-
-            };
-        });
-
-        // Assigning total price to total price section in DOM
-        totalPrice = calculPrice(priceDestination);
-
-        // Listening for submit to POST
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            document.querySelector(".product__warning").textContent = "";
-            // Blocking submit process if cart is empty + displaying message
-            if (products.length == 0) {
-                productsDestination.innerHTML += "<br><br><span class='attention'>Your cart must contain at least one product !</span>";
-            } else {
-                const firstName = document.getElementById("first").value;
-                const lastName = document.getElementById("last").value;
-                const address = document.getElementById("adress").value;
-                const city = document.getElementById("city").value;
-                const email = document.getElementById("email").value;
-
-                const unwantedRegex = /[0-9]+/;
-
-                if (unwantedRegex.test(firstName) || unwantedRegex.test(lastName) || unwantedRegex.test(city)) {
-                    document.querySelector(".product__warning").textContent = "Your first name, last name and city must not contain numbers";
-                }
-                if (!firstName || !lastName || !address || !city || !email) return;
-
-                const contact = {
-                    firstName,
-                    lastName,
-                    address,
-                    city,
-                    email
                 };
+            });
 
-                const body = {
-                    contact,
-                    products
-                };
+            // Assigning total price to total price section in DOM
+            totalPrice = calculPrice(priceDestination);
 
-                postData("http://localhost:3000/api/teddies/order", body, totalPrice);
-            }
+            // Listening for submit to POST
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                document.querySelector(".product__warning").textContent = "";
+                // Blocking submit process if cart is empty + displaying message
+                if (products.length == 0) {
+                    productsDestination.innerHTML += "<br><br><span class='attention'>Your cart must contain at least one product !</span>";
+                } else {
+                    const firstName = document.getElementById("first").value;
+                    const lastName = document.getElementById("last").value;
+                    const address = document.getElementById("adress").value;
+                    const city = document.getElementById("city").value;
+                    const email = document.getElementById("email").value;
+
+                    const unwantedRegex = /[0-9]+/;
+
+                    if (unwantedRegex.test(firstName) || unwantedRegex.test(lastName) || unwantedRegex.test(city)) {
+                        document.querySelector(".product__warning").textContent = "Your first name, last name and city must not contain numbers";
+                    }
+                    if (!firstName || !lastName || !address || !city || !email) return;
+
+                    const contact = {
+                        firstName,
+                        lastName,
+                        address,
+                        city,
+                        email
+                    };
+
+                    const body = {
+                        contact,
+                        products
+                    };
+
+                    postData("http://localhost:3000/api/teddies/order", body, totalPrice);
+                }
+            })
         })
-    });
+        .catch(err => {
+            console.log(err);
+            productsDestination.innerHTML = "Cart not available";
+            productsDestination.classList.add("empty");
+        })
 });

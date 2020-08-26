@@ -19,5 +19,9 @@
     &__product {
         @include flexbox(space-between);
         border-bottom: 1px solid $darkPink;
+
+        @media screen and (max-width: 430px) {
+            flex-direction: column;
+        }
     }
 }

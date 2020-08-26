@@ -55,8 +55,10 @@
     &__infos {
         padding: 15px;
 
-        @media screen and (max-width: $small + 100) {
-            text-align: center;
+        &--cart {
+            @media screen and (max-width: $small + 100) {
+                text-align: center;
+            }
         }
     }
 

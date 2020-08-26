@@ -1,9 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    const burgerMenu = document.getElementById("burger");
     const productDestination = document.querySelector(".catalog");
-
-    if (burgerMenu) burgerMenu.addEventListener("click", displayToogleNavigation);
 
     if (!productDestination) return;
 

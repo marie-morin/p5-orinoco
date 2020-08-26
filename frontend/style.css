@@ -301,7 +301,7 @@ body {
   padding: 15px;
 }
 @media screen and (max-width: 750px) {
-  .product__infos {
+  .product__infos--cart {
     text-align: center;
   }
 }
@@ -444,6 +444,11 @@ body {
   flex-direction: row;
   align-items: center;
   border-bottom: 1px solid #794355;
+}
+@media screen and (max-width: 430px) {
+  .greetings__product {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

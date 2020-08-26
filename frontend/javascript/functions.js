@@ -1,4 +1,7 @@
 // Burger menu display
+const burgerMenu = document.getElementById("burger");
+if (burgerMenu) burgerMenu.addEventListener("click", displayToogleNavigation);
+
 function displayToogleNavigation() {
     const links = document.querySelector("#myLinks");
     if (!links) return;
