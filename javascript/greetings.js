@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     orderedProducts.forEach(product => {
         product.colors.forEach(color => {
             let newName = whiteSpaceSupressor(product.name) + whiteSpaceSupressor(color);
+            console.log(newName);
             if (localNames.indexOf(newName) == -1) localNames.push(newName);
         })
     });
@@ -43,7 +44,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // If so, insert it in DOM
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
+        console.log(key);
         const actualName = JSON.parse(localStorage.getItem(key)).name;
+        console.log(localStorage.getItem(key));
         const fullColor = JSON.parse(localStorage.getItem(key)).color;
         const quantity = JSON.parse(localStorage.getItem(key)).quantity;
         localNames.forEach(name => {

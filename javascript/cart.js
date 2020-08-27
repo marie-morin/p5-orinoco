@@ -96,6 +96,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                             if (newQuantity > 0 && newQuantity <= 3) {
                                 const color = usableKey.color;
                                 const orderContent = {
+                                    "name": name,
                                     "id": localID,
                                     "quantity": newQuantity,
                                     "color": color,
