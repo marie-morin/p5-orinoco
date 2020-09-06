@@ -163,7 +163,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             );
           } else {
             document.querySelector(".product__warning").textContent =
-              "Your first name, last name and city must not contain numbers";
+              "Your first name, last name and city must not contain numbers. Your informations can not contain special caracters as '=', '<>', '?'...";
           }
         }
       });
