@@ -1,0 +1,21 @@
+{
+  "name": "p5-orinoco",
+  "version": "1.0.0",
+  "description": "### Prerequisites ###",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cd backend && nodemon serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marie-morin/p5-orinoco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marie-morin/p5-orinoco/issues"
+  },
+  "homepage": "https://github.com/marie-morin/p5-orinoco#readme"
+}
