@@ -1,35 +1,28 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener("DOMContentLoaded", (event) => {
+  const productDestination = document.querySelector(".catalog");
 
-    const productDestination = document.querySelector(".catalog");
+  if (!productDestination) return;
 
-    if (!productDestination) return;
+  // Fetching products
+  const data = getData("https://p5-orinoco-backend.herokuapp.com/api/teddies");
 
-    // Fetching products
-    const data = getData("http://localhost:3000/api/teddies");
+  if (!data) {
+    productDestination.innerHTML = "Aucun produits disponibles";
+    productDestination.classList.add("empty");
+    return;
+  }
 
-    if (!data) {
-        productDestination.innerHTML = "Aucun produits disponibles";
-        productDestination.classList.add("empty");
-        return;
-    };
+  data
+    .then((data) => {
+      data.forEach((product) => {
+        const { imageUrl, name, description, price, _id } = product;
 
-    data.then(data => {
-            data.forEach(product => {
-                const {
-                    imageUrl,
-                    name,
-                    description,
-                    price,
-                    _id
-                } = product;
+        const productCard = document.createElement("article");
+        productCard.classList.add("product");
+        productCard.classList.add("product--column");
 
-                const productCard = document.createElement("article");
-                productCard.classList.add("product");
-                productCard.classList.add("product--column");
-
-                if (imageUrl && name && description && price && _id) {
-                    productCard.innerHTML =
-                        `<div class="product__showoff">
+        if (imageUrl && name && description && price && _id) {
+          productCard.innerHTML = `<div class="product__showoff">
                     <img src="${imageUrl}" alt="${description}" class="product__image product__image--fixedHeight">
                 </div>
                 <div class="product__infos">
@@ -41,13 +34,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     </div>
                 </div>`;
 
-                    productDestination.appendChild(productCard);
-                }
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            productDestination.innerHTML = "Aucun produit disponible";
-            productDestination.classList.add("empty");
-        })
+          productDestination.appendChild(productCard);
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      productDestination.innerHTML = "Aucun produit disponible";
+      productDestination.classList.add("empty");
+    });
 });

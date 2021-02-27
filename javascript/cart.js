@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // Fetching data
-  const data = getData("http://localhost:3000/api/teddies");
+  const data = getData("https://p5-orinoco-backend.herokuapp.com/api/teddies");
 
   data
     .then((data) => {
@@ -157,7 +157,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             };
 
             postData(
-              "http://localhost:3000/api/teddies/order",
+              "https://p5-orinoco-backend.herokuapp.com/api/teddies/order",
               body,
               totalPrice
             );
